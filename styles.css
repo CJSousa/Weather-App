@@ -1,0 +1,170 @@
+html {
+  height: 100%;
+}
+.lightMode {
+  background-image: url("backgroundBeach3.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  font-family: "Nanum Gothic", sans-serif;
+  font-size: 20px;
+  text-align: center;
+  height: 100%;
+  padding: 0 20px;
+  color: black;
+}
+.darkMode {
+  background-color: black;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  font-family: "Nanum Gothic", sans-serif;
+  font-size: 20px;
+  text-align: center;
+  height: 100%;
+  padding: 0 20px;
+  color: white;
+}
+.lightMode .app {
+  border: 1px solid #0b0b35;
+  padding: 20px 15px;
+  max-width: 1000px;
+  max-height: 1500px;
+  margin: 30px auto;
+  border-radius: 10px;
+  background-color: white;
+}
+.darkMode .app {
+  border: 1px solid #0b0b35;
+  padding: 20px 15px;
+  max-width: 1000px;
+  max-height: 1500px;
+  margin: 30px auto;
+  border-radius: 10px;
+  background-color: black;
+}
+
+h1 {
+  font-family: "Marck Script", cursive;
+  color: #fa7e1e;
+  text-align: center;
+  text-decoration-line: inherit;
+  font-size: 60px;
+}
+.lightMode header {
+  text-align: center;
+  font-size: 40px;
+  font-family: "Marck Script", cursive;
+  color: #1491be;
+}
+.darkMode header {
+  text-align: center;
+  font-size: 40px;
+  font-family: "Marck Script", cursive;
+  color: #036081;
+}
+h2 {
+  font-size: 20px;
+  position: relative;
+  display: block;
+  top: -10px;
+}
+h3 {
+  font-size: 40px;
+}
+ul {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
+  text-transform: capitalize;
+}
+#descripWeatherToday {
+  text-transform: capitalize;
+}
+#tempNow {
+  font-size: 30px;
+}
+.lightMode #hourNow {
+  font-size: 40px;
+  color: black;
+}
+.darkMode #hourNow {
+  font-size: 40px;
+  color: white;
+}
+#location {
+  border-radius: 20px;
+}
+#weatherNext {
+  text-transform: capitalize;
+}
+#formNextTrip {
+  padding-left: 5%;
+}
+/*Buttons*/
+#buttonChangeMode {
+  display: block;
+  color: #fab41e;
+}
+.change-degrees {
+  display: block;
+  position: absolute;
+  right: 0px;
+  border-radius: 20px;
+}
+/*Icons */
+.umbrellaBeachIcon {
+  color: #ffa323;
+  text-align: center;
+  display: inline-block;
+}
+.locationIcon {
+  color: #366ed8;
+  text-align: center;
+  display: inline-block;
+}
+/*Temperatures*/
+.tempMin {
+  text-align: center;
+  display: inline-block;
+  color: rgb(46, 46, 180);
+}
+.tempMax {
+  text-align: center;
+  display: inline-block;
+  color: rgb(245, 94, 94);
+}
+/*Social Media Icons*/
+.instaIcon {
+  display: block;
+  position: relative;
+  font-size: 20px;
+  color: #d62976;
+}
+.twitterIcon {
+  display: block;
+  position: relative;
+  font-size: 20px;
+  color: #00aced;
+}
+.snapchatIcon {
+  display: block;
+  position: relative;
+  font-size: 20px;
+  color: #fffc00;
+}
+/*Positioning*/
+#header2 {
+  position: relative;
+  display: block;
+  top: 5px;
+}
+#currentLocation {
+  position: relative;
+  display: block;
+  top: 5px;
+}
