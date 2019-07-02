@@ -15,7 +15,7 @@
     <link href="https://fonts.googleapis.com/css?family=Fira+Sans|Nanum+Gothic&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Marck+Script&display=swap" rel="stylesheet" />
 
-    <link href="src/styles.css" rel="stylesheet" type="text/css" />
+    <link href="styles.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body id="body" class="lightMode">
@@ -30,8 +30,8 @@
                         <button type="button" class="btn btn-outline-secondary" id="celsius">
                             °C
                         </button>
-                        <button type="button" class="btn btn-outline-secondary" id="celsius">
-                            F
+                        <button type="button" class="btn btn-outline-secondary" id="far">
+                            °F
                         </button>
                     </div>
                 </div>
@@ -134,7 +134,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <span id="tempNow"></span>
+                                    <div class="temperature" id="tempNow"></div>
                                 </div>
                             </div>
                             <br />
@@ -142,9 +142,9 @@
                             <div class="col-md-12">
                                 <ul>
                                     <li>
-                                        <span id="maxTempNow"></span>
+                                        <div class="temperature" id="maxTempNow"></div>
                                         <i class="fas fa-thermometer-full tempMax"></i>
-                                        <span id="minTempNow"></span>
+                                        <div class="temperature" id="minTempNow"></div>
                                         <i class="fas fa-thermometer-quarter tempMin"></i>
                                     </li>
                                     <li id="windToday"></li>
@@ -199,9 +199,9 @@
                         <div class="col-md-4">
                             <ul>
                                 <li>
-                                    <span id="maxTempNextTrip"></span>
+                                    <div class="temperature" id="maxTempNextTrip"></div>
                                     <i class="fas fa-thermometer-full tempMax"></i>
-                                    <span id="minTempNextTrip"></span>
+                                    <div class="temperature" id="minTempNextTrip"></div>
                                     <i class="fas fa-thermometer-quarter tempMin"></i>
                                 </li>
                                 <li id="humidityNextTrip"></li>
@@ -230,9 +230,9 @@
                         </div>
                         <ul>
                             <li>
-                                <span id="maxTemp1"></span>
+                                <div class="temperature" id="maxTemp1"></div>
                                 <i class="fas fa-thermometer-full tempMax"></i>
-                                <span id="minTemp1"></span>
+                                <div class="temperature" id="minTemp1"></div>
                                 <i class="fas fa-thermometer-quarter tempMin"></i>
                             </li>
                             <li id="wind1"></li>
@@ -251,9 +251,9 @@
                         <div class="col-md-12">
                             <ul>
                                 <li>
-                                    <span id="maxTemp2"></span>
+                                    <div class="temperature" id="maxTemp2"></div>
                                     <i class="fas fa-thermometer-full tempMax"></i>
-                                    <span id="minTemp2"></span>
+                                    <div class="temperature" id="minTemp2"></div>
                                     <i class="fas fa-thermometer-quarter tempMin"></i>
                                 </li>
                                 <li id="wind2"></li>
@@ -273,9 +273,9 @@
                         <div class="col-md-12">
                             <ul>
                                 <li>
-                                    <span id="maxTemp3"></span>
+                                    <div class="temperature" id="maxTemp3"></div>
                                     <i class="fas fa-thermometer-full tempMax"></i>
-                                    <span id="minTemp3"></span>
+                                    <div class="temperature" id="minTemp3"></div>
                                     <i class="fas fa-thermometer-quarter tempMin"></i>
                                 </li>
                                 <li id="wind3"></li>
@@ -295,9 +295,9 @@
                         <div class="col-md-12">
                             <ul>
                                 <li>
-                                    <span id="maxTemp4"></span>
+                                    <div class="temperature" id="maxTemp4"></div>
                                     <i class="fas fa-thermometer-full tempMax"></i>
-                                    <span id="minTemp4"></span>
+                                    <div class="temperature" id="minTemp4"></div>
                                     <i class="fas fa-thermometer-quarter tempMin"></i>
                                 </li>
                                 <li id="wind4"></li>
@@ -317,9 +317,9 @@
                         <div class="col-md-12">
                             <ul>
                                 <li>
-                                    <span id="maxTemp5"></span>
+                                    <div class="temperature" id="maxTemp5"></div>
                                     <i class="fas fa-thermometer-full tempMax"></i>
-                                    <span id="minTemp5"></span>
+                                    <div class="temperature" id="maxTemp5"></div>
                                     <i class="fas fa-thermometer-quarter tempMin"></i>
                                 </li>
                                 <li id="wind5"></li>
@@ -345,15 +345,7 @@
             </div>
         </div>
         <br />
-        <div id="breadcrumb">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="">#MyStories</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Home</li>
-                </ol>
-            </nav>
-        </div>
     </div>
-    <script src="src/index.js"></script>
+    <script src="index.js"></script>
 </body>
 </html>

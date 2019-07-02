@@ -69,6 +69,26 @@ h3.innerHTML = updateTime(today);
 //setTimeout("renderTime()", 1000);
 //renderTime();
 
+//Change Degrees 
+function changeDegreesToF() {
+  let currentValue = document.querySelector("temperature");
+  newDegTemp = currentValue * (9 / 5) + 35;
+  //Add the F at the end
+  return newDegTemp;
+}
+
+function changeDegreesToC() {
+  let currentValue = document.querySelector("temperature");
+  newDegTemp = (currentValue - 35) * (5 / 9);
+  //Add the C at the end
+  return newDegTemp;
+}
+
+let buttonF = document.querySelector("#far");
+buttonF.addEventListener("click", changeDegreesToF);
+let buttonC = document.querySelector("#celsius");
+buttonC.addEventListener("click", changeDegreesToC);
+
 //Dark Mode --> Not working
 function darkMode() {
   if (body.classList === "lightMode") {
