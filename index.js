@@ -69,17 +69,18 @@ h3.innerHTML = updateTime(today);
 //setTimeout("renderTime()", 1000);
 //renderTime();
 
-//Change Degrees 
 function changeDegreesToF() {
-  let currentValue = document.querySelector("temperature");
+  let currentValue = document.querySelector("temperature").value;
   newDegTemp = currentValue * (9 / 5) + 35;
+  newDegTemp = Math.round(newDegTemp);
   //Add the F at the end
   return newDegTemp;
 }
 
 function changeDegreesToC() {
-  let currentValue = document.querySelector("temperature");
+  let currentValue = document.querySelector("temperature").value;
   newDegTemp = (currentValue - 35) * (5 / 9);
+  newDegTemp = Math.round(newDegTemp);
   //Add the C at the end
   return newDegTemp;
 }
@@ -139,7 +140,6 @@ function convertDate(epoch) {
   return time;
 }
 
-//DATA OF CURRENT DAY
 function clickForCurrentData() {
   function showWeatherDetailsToday(response) {
     let place = document.querySelector("#currentLocation");
