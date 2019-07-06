@@ -90,9 +90,9 @@ buttonF.addEventListener("click", changeDegreesToF);
 let buttonC = document.querySelector("#celsius");
 buttonC.addEventListener("click", changeDegreesToC);
 
-//Dark Mode --> Not working
+//Dark Mode
 function darkMode() {
-  if (body.classList === "lightMode") {
+  if (element.classList.contains(lightMode)) {
     body.classList.add("darkMode").remove("lightMode");
   } else {
     body.classList.add("lightMode").remove("darkMode");
@@ -102,17 +102,17 @@ let changeModeButton = document.querySelector("#buttonChangeMode");
 changeModeButton.addEventListener("click", darkMode);
 
 //Night Mode --> Not working
-function nightMode(response, date) {
-  let sunset = response.data.sys.sunset;
-  let sunrise = response.data.sys.sunrise;
-  let now = new Date();
+//function nightMode(response, date) {
+//  let sunset = response.data.sys.sunset;
+//  let sunrise = response.data.sys.sunrise;
+//  let now = new Date();
 
-  if (now.getTime() > sunrise && now.getTime() >= sunset) {
-    body.classList.add("darkMode").remove("lightMode");
-  } else {
-    body.classList.add("lightMode").remove("darkMode");
-  }
-}
+//  if (now.getTime() > sunrise && now.getTime() >= sunset) {
+//    body.classList.add("darkMode").remove("lightMode");
+//  } else {
+//    body.classList.add("lightMode").remove("darkMode");
+//  }
+//}
 
 //Getting a date right -> important for forecast
 function convertDate(epoch) {
