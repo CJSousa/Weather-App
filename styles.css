@@ -169,3 +169,7 @@ li {
   display: block;
   top: 5px;
 }
+#descripWeather1 {
+  list-style: none;
+  text-transform: capitalize;
+}

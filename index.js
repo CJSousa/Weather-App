@@ -135,7 +135,7 @@ function convertDate(epoch) {
   let dayMonth = dateInSeconds.getDate();
   let dayWeek = days[dateInSeconds.getDay()];
   let year = dateInSeconds.getFullYear();
-  let time = `${dayWeek}, ${dateMonth} ${month}, ${year}`;
+  let time = `${dayWeek}, ${dayMonth} ${month}, ${year}`;
   return time;
 }
 
@@ -238,14 +238,10 @@ function showWeatherDetailsNextTrip(response) {
   wind.innerText = `Wind speed: ${windNext} km\h`;
 }
 
-let formTrip = document.querySelector("#formNextTrip");
-formTrip.addEventListener("submit", handleBrowser);
-search(Lisbon, PT);
-
 //Form Forecats Details
 function searchForecast(city) {
   let apiKey = "8a8a393e03ebb3959d1f1fd908ba1628";
-  let apiEndPoint = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric$appid=${apiKey}}`;
+  let apiEndPoint = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiEndPoint).then(showWeatherDetailsForecast);
 }
 function handleBrowserForecast(event) {
@@ -254,9 +250,11 @@ function handleBrowserForecast(event) {
   searchForecast(nextTrip.value);
 }
 function showWeatherDetailsForecast(response) {
-  let day1 = querySelector("#day1");
-  date1For = response.data.list[0].dt;
-  //day1.innerHTML = convertDate(date1For);
+  let date1 = document.querySelector("#day1");
+  day1Forecast = response.data.list[0].dt;
+  day1Forecast = convertDate(day1Forecast);
+  date1.innerHTML = day1Forecast;
+
   let weather1 = document.querySelector("#descripWeather1");
   weather1.innerHTML = response.data.list[0].weather[0].description;
   let icon = document.querySelector("#icon1");
@@ -274,11 +272,12 @@ function showWeatherDetailsForecast(response) {
   minTemp1.innerText = `${minT1}°C`;
   let humidity1 = document.querySelector("#humidity1");
   let hum1 = response.data.list[0].main.humidity;
-  humidity1.innerText = `Humidity: ${hum1}%`;
+  humidity1.innerText = `Hum: ${hum1}%`;
   let wind1 = document.querySelector("#wind1");
   let windNext1 = Math.round(response.data.list[0].wind.speed);
-  wind1.innerText = `Wind speed: ${windNext1}km/h`;
+  wind1.innerText = `Wind: ${windNext1}km/h`;
 }
 let formTrip = document.querySelector("#formNextTrip");
+formTrip.addEventListener("submit", handleBrowser);
 formTrip.addEventListener("submit", handleBrowserForecast);
 search(Lisbon, PT);
