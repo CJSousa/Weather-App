@@ -70,19 +70,19 @@ h3.innerHTML = updateTime(today);
 //renderTime();
 
 function changeDegreesToF() {
-  let currentValue = document.querySelector("temperature").value;
+  let currentTemperature = document.querySelector("temperature");
+  let currentValue = document.querySelector("temperature");
   newDegTemp = currentValue * (9 / 5) + 35;
   newDegTemp = Math.round(newDegTemp);
-  //Add the F at the end
-  return newDegTemp;
+  currentTemperature.innerHTML = `°F`;
 }
 
 function changeDegreesToC() {
-  let currentValue = document.querySelector("temperature").value;
+  let currentTemperature = document.querySelector("temperature");
+  let currentValue = document.querySelector("temperature");
   newDegTemp = (currentValue - 35) * (5 / 9);
   newDegTemp = Math.round(newDegTemp);
-  //Add the C at the end
-  return newDegTemp;
+  currentTemperature.innerHTML = `${newDegTemp}°C`;
 }
 
 let buttonF = document.querySelector("#far");
@@ -182,7 +182,7 @@ function clickForCurrentData() {
     let apiKey = "8a8a393e03ebb3959d1f1fd908ba1628";
     let apiEndPoint = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
     axios.get(apiEndPoint).then(showWeatherDetailsToday);
-    axios.get(apiEndPoint).then(nightMode);
+    //axios.get(apiEndPoint).then(nightMode);
   }
 
   navigator.geolocation.getCurrentPosition(showPosition);
@@ -195,16 +195,15 @@ buttonToGetLocation.addEventListener("click", clickForCurrentData);
 function search(city) {
   let apiKey = "8a8a393e03ebb3959d1f1fd908ba1628";
   let apiEndPoint = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-  let apiEndPointForecast = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric$appid=${apiKey}`;
-
   axios.get(apiEndPoint).then(showWeatherDetailsNextTrip);
-  axios.get(apiEndPointForecast).then(showWeatherDetailsForecast);
 }
+
 function handleBrowser(event) {
   event.preventDefault();
   inputBrowser = document.querySelector("#nextTrip");
   search(nextTrip.value);
 }
+
 function showWeatherDetailsNextTrip(response) {
   let place = document.querySelector("#placeNextTrip");
   place.innerText = response.data.name;
@@ -236,41 +235,7 @@ function showWeatherDetailsNextTrip(response) {
 
   let wind = document.querySelector("#windNextTrip");
   let windNext = Math.round(response.data.wind.speed);
-  wind.innerText = `Wind speed: ${windNext}km/h`;
-}
-
-function showWeatherDetailsForecast(response) {
-  //Day 1 --> Not working, but once it does it will be the same for other days
-  let date1 = document.querySelector("#day1");
-  date1For = response.data.list[0].dt;
-  date1For.innerHTML = convertDate(date1For);
-  console.log(date1For);
-  let weather1 = document.querySelector("#descripWeather1");
-  weather1.innerHTML = response.data.list[0].weather[0].description;
-
-  let icon = document.querySelector("#icon1");
-  icon.setAttribute(
-    "src",
-    `http://openweathermap.org/img/w/${
-      response.data.list[0].weather[0].icon
-    }.png`
-  );
-
-  let maxTemp1 = document.querySelector("#maxTemp1");
-  let maxT1 = Math.round(response.data.list[0].main.temp_max);
-  maxTemp1.innerHTML = `${maxT1}°C`;
-
-  let minTemp1 = document.querySelector("#minTemp1");
-  let minT1 = Math.round(response.data.list[0].main.temp_min);
-  minTemp1.innerText = `${minT1}°C`;
-
-  let humidity1 = document.querySelector("#humidity1");
-  let hum1 = response.data.list[0].main.humidity;
-  humidity1.innerText = `Humidity: ${hum1}%`;
-
-  let wind1 = document.querySelector("#wind1");
-  let windNext1 = Math.round(response.data.list[0].wind.speed);
-  wind1.innerText = `Wind speed: ${windNext1}km/h`;
+  wind.innerText = `Wind speed: ${windNext} km\h`;
 }
 
 let formTrip = document.querySelector("#formNextTrip");
