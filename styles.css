@@ -3,7 +3,7 @@ html {
 }
 
 .lightMode {
-  background-image: url("backgroundBeach3.jpg");
+  background-image: url("backgroundBeach.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -16,7 +16,7 @@ html {
   color: black;
 }
 .darkMode {
-  background-color: black;
+  background-image: url("backgroundNight.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
