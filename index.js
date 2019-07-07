@@ -277,10 +277,10 @@ function showWeatherDetailsForecast(response) {
   wind1.innerText = `Wind: ${windNext1}km/h`;
 
   let date2 = document.querySelector("#day2");
-  day2Forecast = response.data.list[0].dt;
+  day2Forecast = response.data.list[1].dt;
   day2Forecast = convertDate(day2Forecast);
-
   date2.innerHTML = day2Forecast;
+
   let weather2 = document.querySelector("#descripWeather2");
   weather2.innerHTML = response.data.list[1].weather[0].description;
   let icon2 = document.querySelector("#icon2");
@@ -407,7 +407,7 @@ function showWeatherDetailsForecast(response) {
   let humidity6 = document.querySelector("#humidity6");
   let hum6 = response.data.list[5].main.humidity;
   humidity6.innerText = `Hum: ${hum6}%`;
-  let wind6 = document.querySelector("#wind");
+  let wind6 = document.querySelector("#wind6");
   let windNext6 = Math.round(response.data.list[5].wind.speed);
   wind6.innerText = `Wind: ${windNext6}km/h`;
 }
