@@ -93,7 +93,7 @@ buttonC.addEventListener("click", changeDegreesToC);
 function darkMode() {
   if (body.classList.contains("lightMode")) {
     body.classList.add("darkMode").remove("lightMode");
-  } else {
+  } else if (body.classList.contains("darkMode")) {
     body.classList.add("lightMode").remove("darkMode");
   }
 }
