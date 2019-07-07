@@ -32,7 +32,7 @@ html {
   border: 1px solid #0b0b35;
   padding: 20px 15px;
   max-width: 1000px;
-  max-height: 1500px;
+  max-height: 2500px;
   margin: 30px auto;
   border-radius: 10px;
   background-color: white;
@@ -41,10 +41,10 @@ html {
   border: 1px solid #0b0b35;
   padding: 20px 15px;
   max-width: 1000px;
-  max-height: 1500px;
+  max-height: 2500px;
   margin: 30px auto;
   border-radius: 10px;
-  background-color: black;
+  background-color: rgb(7, 8, 14);
 }
 
 h1 {
@@ -169,7 +169,12 @@ li {
   display: block;
   top: 5px;
 }
-#descripWeather1 {
+#descripWeather1,
+#descripWeather2,
+#descripWeather3,
+#descripWeather4,
+#descripWeather5,
+#descripWeather6 {
   list-style: none;
   text-transform: capitalize;
 }

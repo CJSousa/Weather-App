@@ -113,7 +113,6 @@ changeModeButton.addEventListener("click", darkMode);
 //  }
 //}
 
-//Getting a date right -> important for forecast
 function convertDate(epoch) {
   let dateInSeconds = new Date(epoch * 1000);
   let months = [
@@ -257,8 +256,8 @@ function showWeatherDetailsForecast(response) {
 
   let weather1 = document.querySelector("#descripWeather1");
   weather1.innerHTML = response.data.list[0].weather[0].description;
-  let icon = document.querySelector("#icon1");
-  icon.setAttribute(
+  let icon1 = document.querySelector("#icon1");
+  icon1.setAttribute(
     "src",
     `http://openweathermap.org/img/w/${
       response.data.list[0].weather[0].icon
@@ -276,6 +275,141 @@ function showWeatherDetailsForecast(response) {
   let wind1 = document.querySelector("#wind1");
   let windNext1 = Math.round(response.data.list[0].wind.speed);
   wind1.innerText = `Wind: ${windNext1}km/h`;
+
+  let date2 = document.querySelector("#day2");
+  day2Forecast = response.data.list[0].dt;
+  day2Forecast = convertDate(day2Forecast);
+
+  date2.innerHTML = day2Forecast;
+  let weather2 = document.querySelector("#descripWeather2");
+  weather2.innerHTML = response.data.list[1].weather[0].description;
+  let icon2 = document.querySelector("#icon2");
+  icon2.setAttribute(
+    "src",
+    `http://openweathermap.org/img/w/${
+      response.data.list[1].weather[0].icon
+    }.png`
+  );
+  let maxTemp2 = document.querySelector("#maxTemp2");
+  let maxT2 = Math.round(response.data.list[1].main.temp_max);
+  maxTemp2.innerHTML = `${maxT2}°C`;
+  let minTemp2 = document.querySelector("#minTemp2");
+  let minT2 = Math.round(response.data.list[1].main.temp_min);
+  minTemp2.innerText = `${minT2}°C`;
+  let humidity2 = document.querySelector("#humidity2");
+  let hum2 = response.data.list[1].main.humidity;
+  humidity2.innerText = `Hum: ${hum2}%`;
+  let wind2 = document.querySelector("#wind2");
+  let windNext2 = Math.round(response.data.list[1].wind.speed);
+  wind2.innerText = `Wind: ${windNext2}km/h`;
+
+  let date3 = document.querySelector("#day3");
+  day3Forecast = response.data.list[2].dt;
+  day3Forecast = convertDate(day3Forecast);
+  date3.innerHTML = day3Forecast;
+
+  let weather3 = document.querySelector("#descripWeather3");
+  weather3.innerHTML = response.data.list[2].weather[0].description;
+  let icon3 = document.querySelector("#icon3");
+  icon3.setAttribute(
+    "src",
+    `http://openweathermap.org/img/w/${
+      response.data.list[2].weather[0].icon
+    }.png`
+  );
+  let maxTemp3 = document.querySelector("#maxTemp3");
+  let maxT3 = Math.round(response.data.list[2].main.temp_max);
+  maxTemp3.innerHTML = `${maxT3}°C`;
+  let minTemp3 = document.querySelector("#minTemp3");
+  let minT3 = Math.round(response.data.list[2].main.temp_min);
+  minTemp3.innerText = `${minT3}°C`;
+  let humidity3 = document.querySelector("#humidity3");
+  let hum3 = response.data.list[2].main.humidity;
+  humidity3.innerText = `Hum: ${hum3}%`;
+  let wind3 = document.querySelector("#wind3");
+  let windNext3 = Math.round(response.data.list[2].wind.speed);
+  wind3.innerText = `Wind: ${windNext3}km/h`;
+
+  let date4 = document.querySelector("#day4");
+  day4Forecast = response.data.list[3].dt;
+  day4Forecast = convertDate(day4Forecast);
+  date4.innerHTML = day4Forecast;
+
+  let weather4 = document.querySelector("#descripWeather4");
+  weather4.innerHTML = response.data.list[3].weather[0].description;
+  let icon4 = document.querySelector("#icon4");
+  icon4.setAttribute(
+    "src",
+    `http://openweathermap.org/img/w/${
+      response.data.list[3].weather[0].icon
+    }.png`
+  );
+  let maxTemp4 = document.querySelector("#maxTemp4");
+  let maxT4 = Math.round(response.data.list[3].main.temp_max);
+  maxTemp4.innerHTML = `${maxT4}°C`;
+  let minTemp4 = document.querySelector("#minTemp4");
+  let minT4 = Math.round(response.data.list[3].main.temp_min);
+  minTemp4.innerText = `${minT4}°C`;
+  let humidity4 = document.querySelector("#humidity4");
+  let hum4 = response.data.list[3].main.humidity;
+  humidity4.innerText = `Hum: ${hum4}%`;
+  let wind4 = document.querySelector("#wind4");
+  let windNext4 = Math.round(response.data.list[3].wind.speed);
+  wind4.innerText = `Wind: ${windNext4}km/h`;
+
+  let date5 = document.querySelector("#day5");
+  day5Forecast = response.data.list[4].dt;
+  day5Forecast = convertDate(day5Forecast);
+  date5.innerHTML = day5Forecast;
+
+  let weather5 = document.querySelector("#descripWeather5");
+  weather5.innerHTML = response.data.list[4].weather[0].description;
+  let icon5 = document.querySelector("#icon5");
+  icon5.setAttribute(
+    "src",
+    `http://openweathermap.org/img/w/${
+      response.data.list[4].weather[0].icon
+    }.png`
+  );
+  let maxTemp5 = document.querySelector("#maxTemp5");
+  let maxT5 = Math.round(response.data.list[4].main.temp_max);
+  maxTemp5.innerHTML = `${maxT5}°C`;
+  let minTemp5 = document.querySelector("#minTemp5");
+  let minT5 = Math.round(response.data.list[4].main.temp_min);
+  minTemp5.innerText = `${minT5}°C`;
+  let humidity5 = document.querySelector("#humidity5");
+  let hum5 = response.data.list[4].main.humidity;
+  humidity5.innerText = `Hum: ${hum5}%`;
+  let wind5 = document.querySelector("#wind5");
+  let windNext5 = Math.round(response.data.list[4].wind.speed);
+  wind5.innerText = `Wind: ${windNext5}km/h`;
+
+  let date6 = document.querySelector("#day6");
+  day6Forecast = response.data.list[5].dt;
+  day6Forecast = convertDate(day6Forecast);
+  date6.innerHTML = day6Forecast;
+
+  let weather6 = document.querySelector("#descripWeather6");
+  weather6.innerHTML = response.data.list[5].weather[0].description;
+  let icon6 = document.querySelector("#icon6");
+  icon6.setAttribute(
+    "src",
+    `http://openweathermap.org/img/w/${
+      response.data.list[5].weather[0].icon
+    }.png`
+  );
+  let maxTemp6 = document.querySelector("#maxTemp6");
+  let maxT6 = Math.round(response.data.list[5].main.temp_max);
+  maxTemp6.innerHTML = `${maxT6}°C`;
+  let minTemp6 = document.querySelector("#minTemp6");
+  let minT6 = Math.round(response.data.list[25].main.temp_min);
+  minTemp6.innerText = `${minT6}°C`;
+  let humidity6 = document.querySelector("#humidity6");
+  let hum6 = response.data.list[5].main.humidity;
+  humidity6.innerText = `Hum: ${hum6}%`;
+  let wind6 = document.querySelector("#wind");
+  let windNext6 = Math.round(response.data.list[5].wind.speed);
+  wind6.innerText = `Wind: ${windNext6}km/h`;
 }
 let formTrip = document.querySelector("#formNextTrip");
 formTrip.addEventListener("submit", handleBrowser);
