@@ -90,9 +90,8 @@ buttonF.addEventListener("click", changeDegreesToF);
 let buttonC = document.querySelector("#celsius");
 buttonC.addEventListener("click", changeDegreesToC);
 
-//Dark Mode
 function darkMode() {
-  if (element.classList.contains(lightMode)) {
+  if (body.classList.contains("lightMode")) {
     body.classList.add("darkMode").remove("lightMode");
   } else {
     body.classList.add("lightMode").remove("darkMode");
