@@ -9,20 +9,20 @@ html {
   background-size: cover;
   height: 100%;
   font-family: "Nanum Gothic", sans-serif;
-  font-size: 20px;
+  font-size: 15px;
   text-align: center;
   height: 100%;
   padding: 0 20px;
   color: black;
 }
 .darkMode {
-  background-color: black;
+  background-image: url("backgroundNight.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   height: 100%;
   font-family: "Nanum Gothic", sans-serif;
-  font-size: 20px;
+  font-size: 15px;
   text-align: center;
   height: 100%;
   padding: 0 20px;
@@ -168,6 +168,10 @@ li {
   position: relative;
   display: block;
   top: 5px;
+}
+
+#nextTrip {
+  font-size: 20px;
 }
 #descripWeather1,
 #descripWeather2,
