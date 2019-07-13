@@ -16,7 +16,7 @@ html {
   color: black;
 }
 .darkMode {
-  background-image: url("backgroundNight.jpg");
+  background-color: black;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
