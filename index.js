@@ -93,7 +93,7 @@ buttonC.addEventListener("click", changeDegreesToC);
 function darkMode() {
   if (body.classList.contains("lightMode")) {
     body.classList.add("darkMode").remove("lightMode");
-  } else if (body.classList.contains("darkMode")) {
+  } else {
     body.classList.add("lightMode").remove("darkMode");
   }
 }
@@ -250,80 +250,182 @@ function handleBrowserForecast(event) {
 }
 function showWeatherDetailsForecast(response) {
   let date1 = document.querySelector("#day1");
-  day1Forecast = response.data.list[6].dt;
+  day1Forecast = response.data.list[7].dt;
   console.log(day1Forecast);
   day1Forecast = convertDate(day1Forecast);
   date1.innerHTML = day1Forecast;
 
   let weather1 = document.querySelector("#descripWeather1");
-  weather1.innerHTML = response.data.list[6].weather[0].description;
+  weather1.innerHTML = response.data.list[7].weather[0].description;
   let icon1 = document.querySelector("#icon1");
   icon1.setAttribute(
     "src",
     `http://openweathermap.org/img/w/${
-      response.data.list[6].weather[0].icon
+      response.data.list[7].weather[0].icon
     }.png`
   );
+  let maxDay1Temp0 = Math.round(response.data.list[0].main.temp_max);
+  let maxDay1Temp1 = Math.round(response.data.list[1].main.temp_max);
+  let maxDay1Temp2 = Math.round(response.data.list[2].main.temp_max);
+  let maxDay1Temp3 = Math.round(response.data.list[3].main.temp_max);
+  let maxDay1Temp4 = Math.round(response.data.list[4].main.temp_max);
+  let maxDay1Temp5 = Math.round(response.data.list[5].main.temp_max);
+  let maxDay1Temp6 = Math.round(response.data.list[6].main.temp_max);
+  let maxDay1Temp7 = Math.round(response.data.list[7].main.temp_max);
   let maxTemp1 = document.querySelector("#maxTemp1");
-  let maxT1 = Math.round(response.data.list[6].main.temp_max);
+  let maxT1 = Math.max(
+    maxDay1Temp0,
+    maxDay1Temp1,
+    maxDay1Temp2,
+    maxDay1Temp3,
+    maxDay1Temp4,
+    maxDay1Temp5,
+    maxDay1Temp6,
+    maxDay1Temp7
+  );
   maxTemp1.innerHTML = `${maxT1}°C`;
+  let minDay1Temp0 = Math.round(response.data.list[0].main.temp_max);
+  let minDay1Temp1 = Math.round(response.data.list[1].main.temp_max);
+  let minDay1Temp2 = Math.round(response.data.list[2].main.temp_max);
+  let minDay1Temp3 = Math.round(response.data.list[3].main.temp_max);
+  let minDay1Temp4 = Math.round(response.data.list[4].main.temp_max);
+  let minDay1Temp5 = Math.round(response.data.list[5].main.temp_max);
+  let minDay1Temp6 = Math.round(response.data.list[6].main.temp_max);
+  let minDay1Temp7 = Math.round(response.data.list[7].main.temp_max);
   let minTemp1 = document.querySelector("#minTemp1");
-  let minT1 = Math.round(response.data.list[6].main.temp_min);
+  let minT1 = Math.min(
+    minDay1Temp0,
+    minDay1Temp1,
+    minDay1Temp2,
+    minDay1Temp3,
+    minDay1Temp4,
+    minDay1Temp5,
+    minDay1Temp6,
+    minDay1Temp7
+  );
   minTemp1.innerText = `${minT1}°C`;
   let humidity1 = document.querySelector("#humidity1");
-  let hum1 = response.data.list[6].main.humidity;
+  let hum1 = response.data.list[7].main.humidity;
   humidity1.innerText = `Hum: ${hum1}%`;
   let wind1 = document.querySelector("#wind1");
-  let windNext1 = Math.round(response.data.list[6].wind.speed);
+  let windNext1 = Math.round(response.data.list[7].wind.speed);
   wind1.innerText = `Wind: ${windNext1}km/h`;
 
   let date2 = document.querySelector("#day2");
-  day2Forecast = response.data.list[10].dt;
+  day2Forecast = response.data.list[15].dt;
   console.log(day2Forecast);
   day2Forecast = convertDate(day2Forecast);
   date2.innerHTML = day2Forecast;
 
   let weather2 = document.querySelector("#descripWeather2");
-  weather2.innerHTML = response.data.list[10].weather[0].description;
+  weather2.innerHTML = response.data.list[15].weather[0].description;
   let icon2 = document.querySelector("#icon2");
   icon2.setAttribute(
     "src",
     `http://openweathermap.org/img/w/${
-      response.data.list[10].weather[0].icon
+      response.data.list[15].weather[0].icon
     }.png`
   );
+  let maxDay2Temp8 = Math.round(response.data.list[8].main.temp_max);
+  let maxDay2Temp9 = Math.round(response.data.list[9].main.temp_max);
+  let maxDay2Temp10 = Math.round(response.data.list[10].main.temp_max);
+  let maxDay2Temp11 = Math.round(response.data.list[11].main.temp_max);
+  let maxDay2Temp12 = Math.round(response.data.list[12].main.temp_max);
+  let maxDay2Temp13 = Math.round(response.data.list[13].main.temp_max);
+  let maxDay2Temp14 = Math.round(response.data.list[14].main.temp_max);
+  let maxDay2Temp15 = Math.round(response.data.list[15].main.temp_max);
   let maxTemp2 = document.querySelector("#maxTemp2");
-  let maxT2 = Math.round(response.data.list[10].main.temp_max);
+  let maxT2 = Math.max(
+    maxDay2Temp8,
+    maxDay2Temp9,
+    maxDay2Temp10,
+    maxDay2Temp11,
+    maxDay2Temp12,
+    maxDay2Temp13,
+    maxDay2Temp14,
+    maxDay2Temp15
+  );
   maxTemp2.innerHTML = `${maxT2}°C`;
+  let minDay2Temp8 = Math.round(response.data.list[8].main.temp_max);
+  let minDay2Temp9 = Math.round(response.data.list[9].main.temp_max);
+  let minDay2Temp10 = Math.round(response.data.list[10].main.temp_max);
+  let minDay2Temp11 = Math.round(response.data.list[11].main.temp_max);
+  let minDay2Temp12 = Math.round(response.data.list[12].main.temp_max);
+  let minDay2Temp13 = Math.round(response.data.list[13].main.temp_max);
+  let minDay2Temp14 = Math.round(response.data.list[14].main.temp_max);
+  let minDay2Temp15 = Math.round(response.data.list[15].main.temp_max);
   let minTemp2 = document.querySelector("#minTemp2");
-  let minT2 = Math.round(response.data.list[10].main.temp_min);
+  let minT2 = Math.min(
+    minDay2Temp8,
+    minDay2Temp9,
+    minDay2Temp10,
+    minDay2Temp11,
+    minDay2Temp12,
+    minDay2Temp13,
+    minDay2Temp14,
+    minDay2Temp15
+  );
   minTemp2.innerText = `${minT2}°C`;
   let humidity2 = document.querySelector("#humidity2");
-  let hum2 = response.data.list[10].main.humidity;
+  let hum2 = response.data.list[15].main.humidity;
   humidity2.innerText = `Hum: ${hum2}%`;
   let wind2 = document.querySelector("#wind2");
-  let windNext2 = Math.round(response.data.list[10].wind.speed);
+  let windNext2 = Math.round(response.data.list[15].wind.speed);
   wind2.innerText = `Wind: ${windNext2}km/h`;
 
   let date3 = document.querySelector("#day3");
-  day3Forecast = response.data.list[17].dt;
+  day3Forecast = response.data.list[23].dt;
   day3Forecast = convertDate(day3Forecast);
   date3.innerHTML = day3Forecast;
 
   let weather3 = document.querySelector("#descripWeather3");
-  weather3.innerHTML = response.data.list[17].weather[0].description;
+  weather3.innerHTML = response.data.list[23].weather[0].description;
   let icon3 = document.querySelector("#icon3");
   icon3.setAttribute(
     "src",
     `http://openweathermap.org/img/w/${
-      response.data.list[17].weather[0].icon
+      response.data.list[23].weather[0].icon
     }.png`
   );
+  let maxDay3Temp16 = Math.round(response.data.list[16].main.temp_max);
+  let maxDay3Temp17 = Math.round(response.data.list[17].main.temp_max);
+  let maxDay3Temp18 = Math.round(response.data.list[18].main.temp_max);
+  let maxDay3Temp19 = Math.round(response.data.list[19].main.temp_max);
+  let maxDay3Temp20 = Math.round(response.data.list[20].main.temp_max);
+  let maxDay3Temp21 = Math.round(response.data.list[21].main.temp_max);
+  let maxDay3Temp22 = Math.round(response.data.list[22].main.temp_max);
+  let maxDay3Temp23 = Math.round(response.data.list[23].main.temp_max);
   let maxTemp3 = document.querySelector("#maxTemp3");
-  let maxT3 = Math.round(response.data.list[17].main.temp_max);
+  let maxT3 = Math.max(
+    maxDay3Temp16,
+    maxDay3Temp17,
+    maxDay3Temp18,
+    maxDay3Temp19,
+    maxDay3Temp20,
+    maxDay3Temp21,
+    maxDay3Temp22,
+    maxDay3Temp23
+  );
   maxTemp3.innerHTML = `${maxT3}°C`;
+  let minDay3Temp16 = Math.round(response.data.list[16].main.temp_max);
+  let minDay3Temp17 = Math.round(response.data.list[17].main.temp_max);
+  let minDay3Temp18 = Math.round(response.data.list[18].main.temp_max);
+  let minDay3Temp19 = Math.round(response.data.list[19].main.temp_max);
+  let minDay3Temp20 = Math.round(response.data.list[20].main.temp_max);
+  let minDay3Temp21 = Math.round(response.data.list[21].main.temp_max);
+  let minDay3Temp22 = Math.round(response.data.list[22].main.temp_max);
+  let minDay3Temp23 = Math.round(response.data.list[23].main.temp_max);
   let minTemp3 = document.querySelector("#minTemp3");
-  let minT3 = Math.round(response.data.list[17].main.temp_min);
+  let minT3 = Math.min(
+    minDay3Temp16,
+    minDay3Temp17,
+    minDay3Temp18,
+    minDay3Temp19,
+    minDay3Temp20,
+    minDay3Temp21,
+    minDay3Temp22,
+    minDay3Temp23
+  );
   minTemp3.innerText = `${minT3}°C`;
   let humidity3 = document.querySelector("#humidity3");
   let hum3 = response.data.list[17].main.humidity;
@@ -333,19 +435,27 @@ function showWeatherDetailsForecast(response) {
   wind3.innerText = `Wind: ${windNext3}km/h`;
 
   let date4 = document.querySelector("#day4");
-  day4Forecast = response.data.list[25].dt;
+  day4Forecast = response.data.list[31].dt;
   day4Forecast = convertDate(day4Forecast);
   date4.innerHTML = day4Forecast;
 
   let weather4 = document.querySelector("#descripWeather4");
-  weather4.innerHTML = response.data.list[25].weather[0].description;
+  weather4.innerHTML = response.data.list[31].weather[0].description;
   let icon4 = document.querySelector("#icon4");
   icon4.setAttribute(
     "src",
     `http://openweathermap.org/img/w/${
-      response.data.list[25].weather[0].icon
+      response.data.list[31].weather[0].icon
     }.png`
   );
+  let maxDay4Temp31 = Math.round(response.data.list[31].main.temp_max);
+  let maxDay4Temp32 = Math.round(response.data.list[32].main.temp_max);
+  let maxDay4Temp33 = Math.round(response.data.list[33].main.temp_max);
+  let maxDay4Temp34 = Math.round(response.data.list[34].main.temp_max);
+  let maxDay4Temp35 = Math.round(response.data.list[35].main.temp_max);
+  let maxDay4Temp36 = Math.round(response.data.list[36].main.temp_max);
+  let maxDay4Temp37 = Math.round(response.data.list[37].main.temp_max);
+  let maxDay4Temp38 = Math.round(response.data.list[38].main.temp_max);
   let maxTemp4 = document.querySelector("#maxTemp4");
   let maxT4 = Math.round(response.data.list[25].main.temp_max);
   maxTemp4.innerHTML = `${maxT4}°C`;
@@ -360,13 +470,13 @@ function showWeatherDetailsForecast(response) {
   wind4.innerText = `Wind: ${windNext4}km/h`;
 
   let date5 = document.querySelector("#day5");
-  day5Forecast = response.data.list[33].dt;
+  day5Forecast = response.data.list[39].dt;
   console.log(day5Forecast);
   day5Forecast = convertDate(day5Forecast);
   date5.innerHTML = day5Forecast;
 
   let weather5 = document.querySelector("#descripWeather5");
-  weather5.innerHTML = response.data.list[33].weather[0].description;
+  weather5.innerHTML = response.data.list[39].weather[0].description;
   let icon5 = document.querySelector("#icon5");
   icon5.setAttribute(
     "src",
