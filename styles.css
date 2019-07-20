@@ -129,17 +129,19 @@ li {
   display: inline-block;
 }
 /*Temperatures*/
+.tempNextDays {
+  visibility: hidden;
+}
+
 .tempMin {
   text-align: center;
   display: inline-block;
   color: rgb(46, 46, 180);
-  visibility: hidden;
 }
 .tempMax {
   text-align: center;
   display: inline-block;
   color: rgb(245, 94, 94);
-  visibility: hidden;
 }
 
 /*Social Media Icons*/

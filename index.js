@@ -250,6 +250,10 @@ function handleBrowserForecast(event) {
   searchForecast(nextTrip.value);
 }
 function showWeatherDetailsForecast(response) {
+  for (let tempMarker of document.getElementsByClassName("tempNextDays")) {
+    tempMarker.style.visibilty = "visible";
+  }
+
   let date1 = document.querySelector("#day1");
   day1Forecast = response.data.list[7].dt;
   day1Forecast = convertDate(day1Forecast);
