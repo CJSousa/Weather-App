@@ -251,7 +251,7 @@ function handleBrowserForecast(event) {
 }
 function showWeatherDetailsForecast(response) {
   for (let tempMarker of document.getElementsByClassName("tempNextDays")) {
-    tempMarker.style.visibilty = "visible";
+    tempMarker.style.visibility = "visible";
   }
 
   let date1 = document.querySelector("#day1");
