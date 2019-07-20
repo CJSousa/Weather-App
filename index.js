@@ -91,27 +91,28 @@ let buttonC = document.querySelector("#celsius");
 buttonC.addEventListener("click", changeDegreesToC);
 
 function darkMode() {
-  if (body.classList.contains("lightMode")) {
-    body.classList.add("darkMode").remove("lightMode");
+  let mode = document.getElementById("body");
+  if (mode.classList.contains("lightMode")) {
+    mode.classList.add("darkMode").remove("lightMode");
   } else {
-    body.classList.add("lightMode").remove("darkMode");
+    mode.classList.remove("darkMode").add("lightMode");
   }
 }
 let changeModeButton = document.querySelector("#buttonChangeMode");
 changeModeButton.addEventListener("click", darkMode);
 
-//Night Mode --> Not working
-//function nightMode(response, date) {
-//  let sunset = response.data.sys.sunset;
-//  let sunrise = response.data.sys.sunrise;
-//  let now = new Date();
+function nightMode(response, date) {
+  let sunset = response.data.sys.sunset;
+  let sunrise = response.data.sys.sunrise;
+  let mode = document.getElementById("body");
+  let now = new Date();
 
-//  if (now.getTime() > sunrise && now.getTime() >= sunset) {
-//    body.classList.add("darkMode").remove("lightMode");
-//  } else {
-//    body.classList.add("lightMode").remove("darkMode");
-//  }
-//}
+  if (now.getTime() > sunset || now.getTime() < sunrise) {
+    mode.classList.add("darkMode").remove("lightMode");
+  } else {
+    mode.classList.remove("darkMode").add("lightMode");
+  }
+}
 
 function convertDate(epoch) {
   let dateInSeconds = new Date(epoch * 1000);
@@ -181,7 +182,7 @@ function clickForCurrentData() {
     let apiKey = "8a8a393e03ebb3959d1f1fd908ba1628";
     let apiEndPoint = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
     axios.get(apiEndPoint).then(showWeatherDetailsToday);
-    //axios.get(apiEndPoint).then(nightMode);
+    axios.get(apiEndPoint).then(nightMode);
   }
 
   navigator.geolocation.getCurrentPosition(showPosition);
@@ -251,7 +252,6 @@ function handleBrowserForecast(event) {
 function showWeatherDetailsForecast(response) {
   let date1 = document.querySelector("#day1");
   day1Forecast = response.data.list[7].dt;
-  console.log(day1Forecast);
   day1Forecast = convertDate(day1Forecast);
   date1.innerHTML = day1Forecast;
 
@@ -497,7 +497,17 @@ function showWeatherDetailsForecast(response) {
   let windNext5 = Math.round(response.data.list[33].wind.speed);
   wind5.innerText = `Wind: ${windNext5}km/h`;
 }
+
+function addTempIcons() {
+  let minTempIcon = document.querySelectorAll("tempMin");
+  let maxTempIcon = document.querySelectorAll("tempMax");
+  minTempIcon.style.visbility = "visible";
+  maxTempIcon.style.visbility = "visible";
+}
+
 let formTrip = document.querySelector("#formNextTrip");
 formTrip.addEventListener("submit", handleBrowser);
 formTrip.addEventListener("submit", handleBrowserForecast);
-search(Lisbon, PT);
+formTrip.addEventListener("submit", addTempIcons);
+let defaultCity = `Lisbon, PT`;
+search(defaultCity);
