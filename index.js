@@ -90,30 +90,6 @@ buttonF.addEventListener("click", changeDegreesToF);
 let buttonC = document.querySelector("#celsius");
 buttonC.addEventListener("click", changeDegreesToC);
 
-function darkMode() {
-  let mode = document.getElementById("body");
-  if (mode.classList.contains("lightMode")) {
-    mode.classList.add("darkMode").remove("lightMode");
-  } else {
-    mode.classList.remove("darkMode").add("lightMode");
-  }
-}
-let changeModeButton = document.querySelector("#buttonChangeMode");
-changeModeButton.addEventListener("click", darkMode);
-
-function nightMode(response, date) {
-  let sunset = response.data.sys.sunset;
-  let sunrise = response.data.sys.sunrise;
-  let mode = document.getElementById("body");
-  let now = new Date();
-
-  if (now.getTime() > sunset || now.getTime() < sunrise) {
-    mode.classList.add("darkMode").remove("lightMode");
-  } else {
-    mode.classList.remove("darkMode").add("lightMode");
-  }
-}
-
 function convertDate(epoch) {
   let dateInSeconds = new Date(epoch * 1000);
   let months = [
@@ -139,8 +115,58 @@ function convertDate(epoch) {
   return time;
 }
 
+function convertTime(epoch) {
+  let dateSeconds = new Date(epoch * 1000);
+  let hour = dateSeconds.getHours();
+  return hour;
+}
+
+function changeMode() {
+  let mode = document.getElementById("body");
+  if (mode.classList.contains("lightMode")) {
+    mode.classList.add("darkMode").remove("lightMode");
+  }
+  if (mode.classList.contains("darkMode")) {
+    mode.classList.add("darkMode").remove("lightMode");
+  } else {
+    mode.classList.remove("darkMode").add("lightMode");
+  }
+}
+
+let buttonChangeMode = document.querySelector("#buttonChangeMode");
+buttonChangeMode.addEventListener("click", changeMode);
+
+function nightMode(response) {
+  let sunrise = response.data.sys.sunrise;
+  let sunset = response.data.sys.sunset;
+  let timezone = response.data.timezone;
+  let mode = document.getElementById("body");
+  let today = new Date();
+  let difference = today + timezone - 3600;
+  let differenceSunrise = sunrise + timezone - 3600;
+  let differenceSunset = sunset + timezone - 3600;
+  let hours = convertTime(difference);
+  let currentSunrise = convertTime(differenceSunrise);
+  let currentSunset = convertTime(differenceSunset);
+
+  if (hours > currentSunset) {
+    mode.classList.add("darkMode").remove("lightMode");
+  }
+  if (hours < currentSunrise) {
+    mode.classList.add("darkMode").remove("lightMode");
+  } else {
+    mode.classList.remove("darkMode").add("lightMode");
+  }
+}
+
 function clickForCurrentData() {
   function showWeatherDetailsToday(response) {
+    for (let tempMarker of document.getElementsByClassName(
+      "tempCurrentLocation"
+    )) {
+      tempMarker.style.visibility = "visible";
+    }
+
     let place = document.querySelector("#currentLocation");
     place.innerText = response.data.name;
 
@@ -317,7 +343,6 @@ function showWeatherDetailsForecast(response) {
 
   let date2 = document.querySelector("#day2");
   day2Forecast = response.data.list[15].dt;
-  console.log(day2Forecast);
   day2Forecast = convertDate(day2Forecast);
   date2.innerHTML = day2Forecast;
 
@@ -502,16 +527,8 @@ function showWeatherDetailsForecast(response) {
   wind5.innerText = `Wind: ${windNext5}km/h`;
 }
 
-function addTempIcons() {
-  let minTempIcon = document.querySelectorAll("tempMin");
-  let maxTempIcon = document.querySelectorAll("tempMax");
-  minTempIcon.style.visbility = "visible";
-  maxTempIcon.style.visbility = "visible";
-}
-
 let formTrip = document.querySelector("#formNextTrip");
 formTrip.addEventListener("submit", handleBrowser);
 formTrip.addEventListener("submit", handleBrowserForecast);
-formTrip.addEventListener("submit", addTempIcons);
 let defaultCity = `Lisbon, PT`;
 search(defaultCity);

@@ -129,10 +129,12 @@ li {
   display: inline-block;
 }
 /*Temperatures*/
+.tempCurrentLocation {
+  visibility: hidden;
+}
 .tempNextDays {
   visibility: hidden;
 }
-
 .tempMin {
   text-align: center;
   display: inline-block;
