@@ -125,10 +125,7 @@ function changeMode() {
   let mode = document.getElementById("body");
   if (mode.classList.contains("lightMode")) {
     mode.classList.add("darkMode").remove("lightMode");
-  }
-  if (mode.classList.contains("darkMode")) {
-    mode.classList.add("darkMode").remove("lightMode");
-  } else {
+  } else if (mode.classList.contains("lightMode")) {
     mode.classList.remove("darkMode").add("lightMode");
   }
 }

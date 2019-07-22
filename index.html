@@ -30,370 +30,325 @@
 
     <link href="styles.css" rel="stylesheet" type="text/css" />
   </head>
-  <body id="body" class="lightMode">
-    <div class="container">
-      <div class="app">
-        <br />
-        <h1><i class="fas fa-sun sunIcon"></i>FollowTheSun</h1>
-        <div class="row mt-2">
-          <div class="col-md-10"></div>
-          <div class="col-md-1">
-            <div class="btn-group mr-2" role="group" aria-label="Second group">
-              <button
-                type="button"
-                class="btn btn-outline-secondary"
-                id="celsius"
-              >
-                °C
-              </button>
-              <button type="button" class="btn btn-outline-secondary" id="far">
-                °F
-              </button>
-            </div>
-          </div>
-          <div class="col-md-1">
-            <button
-              type="button"
-              class="btn btn-outline-secondary"
-              id="buttonChangeMode"
-            >
-              <i class="far fa-moon"></i>
+<body id="body" class="lightMode">
+  <div class="container">
+    <div class="app">
+      <br />
+      <h1><i class="fas fa-sun sunIcon"></i>FollowTheSun</h1>
+      <div class="row mt-2">
+        <div class="col-md-10"></div>
+        <div class="col-md-1">
+          <div class="btn-group mr-2" role="group" aria-label="Second group">
+            <button type="button" class="btn btn-outline-secondary" id="celsius">
+              °C
+            </button>
+            <button type="button" class="btn btn-outline-secondary" id="far">
+              °F
             </button>
           </div>
         </div>
-        <div class="row mt-2">
-          <div class="col-md-6">
-            <div class="row mt-2">
-              <div class="col-md-2"></div>
-              <div class="col-md-10">
-                <header id="header1">
-                  #MySunTrips
-                </header>
-                <p class="card-text"></p>
-                <p>
-                  It was raining in New York, but in Faro the sun will be hot!
-                </p>
-                <button
-                  type="button"
-                  class="btn btn-outline-secondary"
-                  id="buttonEnterPhoto"
-                >
-                  [Enter your photo in New York!]
-                </button>
-                <br />
-                <br />
-                <p>Trip to Faro: 10th August 2019</p>
-                <div class="col-md-12">
-                  <ul>
-                    <li>
-                      <span>35°C</span>
-                      <i class="fas fa-thermometer-full tempMax"></i>
-                      <span>25°C</span>
-                      <i class="fas fa-thermometer-quarter tempMin"></i>
-                    </li>
-                    <li>Wind speed: 2.0 km/h</li>
-                    <li>Humidity: 26%</li>
-                  </ul>
-                </div>
-                <br />
-                <p>
-                  <i class="fas fa-umbrella-beach umbrellaBeachIcon"></i>
-                  <small
-                    >Enjoy the sandy beaches of the Mediterranean Sea and share
-                    the best mojitos with all your friends</small
-                  >
-                </p>
-                <div
-                  class="btn-group mr-2 socialButtons"
-                  role="group"
-                  aria-label="Second group"
-                >
-                  <button
-                    type="button"
-                    class="btn btn-outline-light buttonInsta"
-                  >
-                    <i class="fab fa-instagram instaIcon"></i>
-                  </button>
-                  <button
-                    type="button"
-                    class="btn btn-outline-light buttonTwitter"
-                  >
-                    <i class="fab fa-twitter twitterIcon"></i>
-                  </button>
-                  <button
-                    type="button"
-                    class="btn btn-outline-light buttonSnap"
-                  >
-                    <i class="fab fa-snapchat-ghost snapchatIcon"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="row mt-2">
-              <div class="col-md-10">
-                <header id="header2">
-                  Today
-                </header>
-                <br />
-                <h2></h2>
-                <div class="row">
-                  <div class="col-md-2"></div>
-                  <div class="col-md-8">
-                    <div class="row">
-                      <div class="col-md-2">
-                        <button
-                          type="button"
-                          class="btn btn-outline-info"
-                          id="location"
-                        >
-                          <i class="fas fa-map-marker-alt locationIcon"></i>
-                        </button>
-                      </div>
-                      <div class="col-md-10">
-                        <span>How's the sun shining here?</span>
-                      </div>
-                    </div>
-                    <span id="currentLocation"></span>
-                  </div>
-                  <div class="col-md-2"></div>
-                </div>
-                <br />
-                <div class="row">
-                  <div class="col-md-2"></div>
-                  <div class="col-md-8 hours">
-                    <h3 id="hourNow"></h3>
-                  </div>
-                  <div class="col-md-2"></div>
-                </div>
-                <br />
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="row">
-                      <div class="col-md-3"></div>
-                      <div class="col-md-3"><img id="iconToday" /></div>
-                      <div class="col-md-6">
-                        <span id="descripWeatherToday"></span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="temperature" id="tempNow"></div>
-                  </div>
-                </div>
-                <br />
-                <br />
-                <div class="col-md-12">
-                  <ul>
-                    <li>
-                      <span class="temperature" id="maxTempNow"></span>
-                      <i class="fas fa-thermometer-full tempMax tempCurrentLocation"></i>
-                      <span class="temperature" id="minTempNow"></span>
-                      <i class="fas fa-thermometer-quarter tempMin tempCurrentLocation"></i>
-                    </li>
-                    <li id="windToday"></li>
-                    <li id="humidityToday"></li>
-                  </ul>
-                </div>
-                <br />
-                <div
-                  class="btn-group mr-2 socialButtons"
-                  role="group"
-                  aria-label="Second group"
-                >
-                  <button type="button" class="btn btn-outline-light">
-                    <i class="fab fa-instagram instaIcon"></i>
-                  </button>
-                  <button type="button" class="btn btn-outline-light">
-                    <i class="fab fa-twitter twitterIcon"></i>
-                  </button>
-                  <button type="button" class="btn btn-outline-light">
-                    <i class="fab fa-snapchat-ghost snapchatIcon"></i>
-                  </button>
-                </div>
-              </div>
-              <div class="col-md-2"></div>
-            </div>
-          </div>
+        <div class="col-md-1">
+          <button type="button" class="btn btn-outline-secondary" id="buttonChangeMode">
+            <i class="far fa-moon"></i>
+          </button>
         </div>
-        <div class="row">
-          <div class="col-md-1"></div>
-          <div class="col-md-10">
-            <br />
-            <header>Where off to next?</header>
-            <br />
-            <form class="form-inline mb-4" id="formNextTrip">
-              <div class="form-group mr-2">
-                <input
-                  type="text"
-                  placeholder="Where off to next?"
-                  autofocus="off"
-                  autocomplete="off"
-                  id="nextTrip"
-                />
-              </div>
-              <div class="form-group">
-                <input type="submit" value="Search" class="btn btn-info" />
-              </div>
+      </div>
+      <div class="row mt-2">
+        <div class="col-md-6">
+          <div class="row mt-2">
+            <div class="col-md-2"></div>
+            <div class="col-md-10">
+              <header id="header1">
+                #MySunTrips
+              </header>
+              <p class="card-text"></p>
+              <p>
+                It was raining in New York, but in Faro the sun will be hot!
+              </p>
+              <button type="button" class="btn btn-outline-secondary" id="buttonEnterPhoto">
+                [Enter your photo in New York!]
+              </button>
               <br />
-            </form>
-            <div class="row mt-3">
-              <div class="col-md-4">
-                <div class="clearfix">
-                  <img id="iconNextTrip" />
-                  <span id="weatherNext"></span>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <ul>
-                  <li id="placeNextTrip"></li>
-                  <li id="tempNextTrip"></li>
-                </ul>
-              </div>
-              <div class="col-md-4">
+              <br />
+              <p>Trip to Faro: 10th August 2019</p>
+              <div class="col-md-12">
                 <ul>
                   <li>
-                    <span class="temperature" id="maxTempNextTrip"></span>
+                    <span>35°C</span>
                     <i class="fas fa-thermometer-full tempMax"></i>
-                    <span class="temperature" id="minTempNextTrip"></span>
+                    <span>25°C</span>
                     <i class="fas fa-thermometer-quarter tempMin"></i>
                   </li>
-                  <li id="humidityNextTrip"></li>
-                  <li id="windNextTrip"></li>
+                  <li>Wind speed: 2.0 km/h</li>
+                  <li>Humidity: 26%</li>
                 </ul>
+              </div>
+              <br />
+              <p>
+                <i class="fas fa-umbrella-beach umbrellaBeachIcon"></i>
+                <small>Enjoy the sandy beaches of the Mediterranean Sea and share
+                  the best mojitos with all your friends</small>
+              </p>
+              <div class="btn-group mr-2 socialButtons" role="group" aria-label="Second group">
+                <button type="button" class="btn btn-outline-light buttonInsta">
+                  <i class="fab fa-instagram instaIcon"></i>
+                </button>
+                <button type="button" class="btn btn-outline-light buttonTwitter">
+                  <i class="fab fa-twitter twitterIcon"></i>
+                </button>
+                <button type="button" class="btn btn-outline-light buttonSnap">
+                  <i class="fab fa-snapchat-ghost snapchatIcon"></i>
+                </button>
               </div>
             </div>
           </div>
-          <div class="col-md-1"></div>
         </div>
-          <br />
-          <header id="header3">
-            Next Days
-          </header>
-          <br />
-          <div class="row">
-            <div class="col-md-4">
-              <span id="day1"></span>
+        <div class="col-md-6">
+          <div class="row mt-2">
+            <div class="col-md-10">
+              <header id="header2">
+                Today
+              </header>
+              <br />
+              <h2></h2>
               <div class="row">
-                <div class="col-md-6"><img id="icon1" /></div>
-                <div class="col-md-6">
-                  <span id="descripWeather1"></span>
-                </div>
-              </div>
-                <ul>
-                  <li>
-                    <span class="temperature" id="maxTemp1"></span>
-                    <i class="fas fa-thermometer-full tempMax tempNextDays"></i>
-                    <span class="temperature" id="minTemp1"></span>
-                    <i class="fas fa-thermometer-quarter tempMin tempNextDays"></i>
-                  </li>
-                  <li id="wind1"></li>
-                  <li id="humidity1"></li>
-                </ul>
-              </div>
-              <div class="col-md-4">
-                <span id="day2"></span>
-                <div class="row">
-                  <div class="col-md-6"><img id="icon2" /></div>
-                  <div class="col-md-6">
-                    <span id="descripWeather2"></span>
-                  </div>
-                </div>
-                  <ul>
-                    <li>
-                      <span class="temperature" id="maxTemp2"></span>
-                      <i class="fas fa-thermometer-full tempMax tempNextDays"></i>
-                      <span class="temperature" id="minTemp2"></span>
-                      <i class="fas fa-thermometer-quarter tempMin tempNextDays"></i>
-                    </li>
-                    <li id="wind2"></li>
-                    <li id="humidity2"></li>
-                  </ul>
-                </div>
-                <div class="col-md-4">
-                  <span id="day3"></span>
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
                   <div class="row">
-                    <div class="col-md-6"><img id="icon3" /></div>
-                    <div class="col-md-6">
-                      <span id="descripWeather3"></span>
+                    <div class="col-md-2">
+                      <button type="button" class="btn btn-outline-info" id="location">
+                        <i class="fas fa-map-marker-alt locationIcon"></i>
+                      </button>
+                    </div>
+                    <div class="col-md-10">
+                      <span>How's the sun shining here?</span>
                     </div>
                   </div>
-                  <ul>
-                    <li>
-                      <span class="temperature" id="maxTemp3"></span>
-                      <i class="fas fa-thermometer-full tempMax tempNextDays"></i>
-                      <span class="temperature" id="minTemp3"></span>
-                      <i class="fas fa-thermometer-quarter tempMin tempNextDays"></i>
-                    </li>
-                    <li id="wind3"></li>
-                    <li id="humidity3"></li>
-                  </ul>
+                  <span id="currentLocation"></span>
                 </div>
+                <div class="col-md-2"></div>
               </div>
               <br />
               <div class="row">
-                <div class="col-md-4">
-                  <span id="day4"></span>
-                  <div class="row">
-                    <div class="col-md-6"><img id="icon4" /></div>
-                    <div class="col-md-6">
-                      <span id="descripWeather4"></span>
-                    </div>
-                  </div>
-                  <ul>
-                    <li>
-                      <span class="temperature" id="maxTemp4"></span>
-                      <i class="fas fa-thermometer-full tempMax tempNextDays"></i>
-                      <span class="temperature" id="minTemp4"></span>
-                      <i class="fas fa-thermometer-quarter tempMin tempNextDays"></i>
-                    </li>
-                    <li id="wind4"></li>
-                    <li id="humidity4"></li>
-                  </ul>
+                <div class="col-md-2"></div>
+                <div class="col-md-8 hours">
+                  <h3 id="hourNow"></h3>
                 </div>
-                <div class="col-md-4">
-                  <span id="day5"></span>
-                  <div class="row">
-                    <div class="col-md-6"><img id="icon5" /></div>
-                    <div class="col-md-6">
-                      <span id="descripWeather5"></span>
-                    </div>
-                  </div>
-                  <ul>
-                    <li>
-                      <span class="temperature" id="maxTemp5"></span>
-                      <i class="fas fa-thermometer-full tempMax tempNextDays"></i>
-                      <span class="temperature" id="minTemp5"></span>
-                      <i class="fas fa-thermometer-quarter tempMin tempNextDays"></i>
-                    </li>
-                    <li id="wind5"></li>
-                    <li id="humidity5"></li>
-                  </ul>
-                </div>
-                <div class="col-md-4"></div>
+                <div class="col-md-2"></div>
               </div>
-          <br />
-          <br />
-          <div
-            class="btn-group mr-2 socialButtons"
-            role="group"
-            aria-label="Second group"
-          >
-            <button type="button" class="btn btn-outline-light">
-              <i class="fab fa-instagram instaIcon"></i>
-            </button>
-            <button type="button" class="btn btn-outline-light">
-              <i class="fab fa-twitter twitterIcon"></i>
-            </button>
-            <button type="button" class="btn btn-outline-light">
-              <i class="fab fa-snapchat-ghost snapchatIcon"></i>
-            </button>
+              <br />
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-3"><img id="iconToday" /></div>
+                    <div class="col-md-6">
+                      <span id="descripWeatherToday"></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="temperature" id="tempNow"></div>
+                </div>
+              </div>
+              <br />
+              <br />
+              <div class="col-md-12">
+                <ul>
+                  <li>
+                    <span class="temperature" id="maxTempNow"></span>
+                    <i class="fas fa-thermometer-full tempMax tempCurrentLocation"></i>
+                    <span class="temperature" id="minTempNow"></span>
+                    <i class="fas fa-thermometer-quarter tempMin tempCurrentLocation"></i>
+                  </li>
+                  <li id="windToday"></li>
+                  <li id="humidityToday"></li>
+                </ul>
+              </div>
+              <br />
+              <div class="btn-group mr-2 socialButtons" role="group" aria-label="Second group">
+                <button type="button" class="btn btn-outline-light">
+                  <i class="fab fa-instagram instaIcon"></i>
+                </button>
+                <button type="button" class="btn btn-outline-light">
+                  <i class="fab fa-twitter twitterIcon"></i>
+                </button>
+                <button type="button" class="btn btn-outline-light">
+                  <i class="fab fa-snapchat-ghost snapchatIcon"></i>
+                </button>
+              </div>
+            </div>
+            <div class="col-md-2"></div>
           </div>
         </div>
       </div>
+      <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+          <br />
+          <header>Where off to next?</header>
+          <br />
+          <form class="form-inline mb-4" id="formNextTrip">
+            <div class="form-group mr-2">
+              <input type="text" placeholder="Where off to next?" autofocus="off" autocomplete="off" id="nextTrip" />
+            </div>
+            <div class="form-group">
+              <input type="submit" value="Search" class="btn btn-info" />
+            </div>
+            <br />
+          </form>
+          <div class="row mt-3">
+            <div class="col-md-4">
+              <div class="clearfix">
+                <img id="iconNextTrip" />
+                <span id="weatherNext"></span>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <ul>
+                <li id="placeNextTrip"></li>
+                <li id="tempNextTrip"></li>
+              </ul>
+            </div>
+            <div class="col-md-4">
+              <ul>
+                <li>
+                  <span class="temperature" id="maxTempNextTrip"></span>
+                  <i class="fas fa-thermometer-full tempMax"></i>
+                  <span class="temperature" id="minTempNextTrip"></span>
+                  <i class="fas fa-thermometer-quarter tempMin"></i>
+                </li>
+                <li id="humidityNextTrip"></li>
+                <li id="windNextTrip"></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-1"></div>
+      </div>
       <br />
+      <header id="header3">
+        Next Days
+      </header>
+      <br />
+      <div class="row">
+        <div class="col-md-4">
+          <span id="day1"></span>
+          <div class="row">
+            <div class="col-md-6"><img id="icon1" /></div>
+            <div class="col-md-6">
+              <span id="descripWeather1"></span>
+            </div>
+          </div>
+          <ul>
+            <li>
+              <span class="temperature" id="maxTemp1"></span>
+              <i class="fas fa-thermometer-full tempMax tempNextDays"></i>
+              <span class="temperature" id="minTemp1"></span>
+              <i class="fas fa-thermometer-quarter tempMin tempNextDays"></i>
+            </li>
+            <li id="wind1"></li>
+            <li id="humidity1"></li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <span id="day2"></span>
+          <div class="row">
+            <div class="col-md-6"><img id="icon2" /></div>
+            <div class="col-md-6">
+              <span id="descripWeather2"></span>
+            </div>
+          </div>
+          <ul>
+            <li>
+              <span class="temperature" id="maxTemp2"></span>
+              <i class="fas fa-thermometer-full tempMax tempNextDays"></i>
+              <span class="temperature" id="minTemp2"></span>
+              <i class="fas fa-thermometer-quarter tempMin tempNextDays"></i>
+            </li>
+            <li id="wind2"></li>
+            <li id="humidity2"></li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <span id="day3"></span>
+          <div class="row">
+            <div class="col-md-6"><img id="icon3" /></div>
+            <div class="col-md-6">
+              <span id="descripWeather3"></span>
+            </div>
+          </div>
+          <ul>
+            <li>
+              <span class="temperature" id="maxTemp3"></span>
+              <i class="fas fa-thermometer-full tempMax tempNextDays"></i>
+              <span class="temperature" id="minTemp3"></span>
+              <i class="fas fa-thermometer-quarter tempMin tempNextDays"></i>
+            </li>
+            <li id="wind3"></li>
+            <li id="humidity3"></li>
+          </ul>
+        </div>
+      </div>
+      <br />
+      <div class="row">
+        <div class="col-md-4">
+          <span id="day4"></span>
+          <div class="row">
+            <div class="col-md-6"><img id="icon4" /></div>
+            <div class="col-md-6">
+              <span id="descripWeather4"></span>
+            </div>
+          </div>
+          <ul>
+            <li>
+              <span class="temperature" id="maxTemp4"></span>
+              <i class="fas fa-thermometer-full tempMax tempNextDays"></i>
+              <span class="temperature" id="minTemp4"></span>
+              <i class="fas fa-thermometer-quarter tempMin tempNextDays"></i>
+            </li>
+            <li id="wind4"></li>
+            <li id="humidity4"></li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <span id="day5"></span>
+          <div class="row">
+            <div class="col-md-6"><img id="icon5" /></div>
+            <div class="col-md-6">
+              <span id="descripWeather5"></span>
+            </div>
+          </div>
+          <ul>
+            <li>
+              <span class="temperature" id="maxTemp5"></span>
+              <i class="fas fa-thermometer-full tempMax tempNextDays"></i>
+              <span class="temperature" id="minTemp5"></span>
+              <i class="fas fa-thermometer-quarter tempMin tempNextDays"></i>
+            </li>
+            <li id="wind5"></li>
+            <li id="humidity5"></li>
+          </ul>
+        </div>
+        <div class="col-md-4"></div>
+      </div>
+      <br />
+      <br />
+      <div class="btn-group mr-2 socialButtons" role="group" aria-label="Second group">
+        <button type="button" class="btn btn-outline-light">
+          <i class="fab fa-instagram instaIcon"></i>
+        </button>
+        <button type="button" class="btn btn-outline-light">
+          <i class="fab fa-twitter twitterIcon"></i>
+        </button>
+        <button type="button" class="btn btn-outline-light">
+          <i class="fab fa-snapchat-ghost snapchatIcon"></i>
+        </button>
+      </div>
     </div>
-    <script src="index.js"></script>
-  </body>
+  </div>
+  <br />
+  </div>
+  <script src="index.js"></script>
+</body>
 </html>
