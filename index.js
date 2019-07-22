@@ -69,27 +69,6 @@ h3.innerHTML = updateTime(today);
 //setTimeout("renderTime()", 1000);
 //renderTime();
 
-function changeDegreesToF() {
-  let currentTemperature = document.querySelector("temperature");
-  let currentValue = document.querySelector("temperature");
-  newDegTemp = currentValue * (9 / 5) + 35;
-  newDegTemp = Math.round(newDegTemp);
-  currentTemperature.innerHTML = `°F`;
-}
-
-function changeDegreesToC() {
-  let currentTemperature = document.querySelector("temperature");
-  let currentValue = document.querySelector("temperature");
-  newDegTemp = (currentValue - 35) * (5 / 9);
-  newDegTemp = Math.round(newDegTemp);
-  currentTemperature.innerHTML = `${newDegTemp}°C`;
-}
-
-let buttonF = document.querySelector("#far");
-buttonF.addEventListener("click", changeDegreesToF);
-let buttonC = document.querySelector("#celsius");
-buttonC.addEventListener("click", changeDegreesToC);
-
 function convertDate(epoch) {
   let dateInSeconds = new Date(epoch * 1000);
   let months = [
@@ -124,9 +103,11 @@ function convertTime(epoch) {
 function changeMode() {
   let mode = document.getElementById("body");
   if (mode.classList.contains("lightMode")) {
-    mode.classList.add("darkMode").remove("lightMode");
-  } else if (mode.classList.contains("lightMode")) {
-    mode.classList.remove("darkMode").add("lightMode");
+    mode.classList.add("darkMode");
+    mode.classList.remove("lightMode");
+  } else if (mode.classList.contains("darkMode")) {
+    mode.classList.remove("darkMode");
+    mode.classList.add("lightMode");
   }
 }
 
