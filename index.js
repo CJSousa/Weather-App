@@ -100,6 +100,51 @@ function convertTime(epoch) {
   return hour;
 }
 
+let modeTempDegrees = "C";
+let tempValues = {}; //Assigns ids to the temperatures they should be showing
+
+function renderTemperatures() {
+  for (let [id, currentDegreesTemp] of Object.entries(tempValues)) {
+    document.querySelector(id).innerHTML = `${Math.round(
+      tmp
+    )}°${modeTempDegrees}`;
+  }
+}
+
+function changeDegreesToC() {
+  if (modeTempDegrees === "C") {
+    return;
+  } else {
+    for (let id in tempValues) {
+      tempValues[id] = (tempValues[id] - 32) * (5 / 9);
+    }
+    modeTempDegrees = "C";
+    renderTemperatures();
+  }
+}
+
+function changeDegreesToF() {
+  if (modeTempDegrees === "F") return;
+  else {
+    for (let id in tempValues) {
+      tempValues[id] = tempValues[id] * (9 / 5) + 32;
+    }
+    modeTempDegrees = "F";
+    renderTemperatures();
+  }
+}
+
+function convertTemperatures(currentDegreesTemp) {
+  if (modeTempDegrees === "C") return currentDegreesTemp;
+  else return currentDegreesTemp * (9 / 5) + 32;
+}
+
+let buttonToGetCelsius = document.querySelector("#celsius");
+buttonToGetCelsius.addEventListener("click", changeDegreesToC);
+
+let buttonToGetF = document.querySelector("#far");
+buttonToGetF.addEventListener("click", changeDegreesToF);
+
 function changeMode() {
   let mode = document.getElementById("body");
   if (mode.classList.contains("lightMode")) {
@@ -159,8 +204,8 @@ function clickForCurrentData() {
     );
 
     let temperature = response.data.main.temp;
-    let currentTemp = document.querySelector("#tempNow");
-    currentTemp.innerHTML = `${temperature}°C`;
+    tempValues["#tempNow"] = temperature;
+    renderTemperatures();
 
     let maxTempToday = Math.round(response.data.main.temp_max);
     let currentTempMaxToday = document.querySelector("#maxTempNow");
