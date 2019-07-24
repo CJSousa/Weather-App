@@ -1,7 +1,6 @@
 html {
   height: 100%;
 }
-
 .lightMode {
   background-image: url("backgroundBeach.jpg");
   background-position: center;
@@ -46,7 +45,6 @@ html {
   border-radius: 10px;
   background-color: rgb(7, 8, 14);
 }
-
 h1 {
   font-family: "Marck Script", cursive;
   color: #fa7e1e;
@@ -145,7 +143,6 @@ li {
   display: inline-block;
   color: rgb(245, 94, 94);
 }
-
 /*Social Media Icons*/
 .instaIcon {
   display: block;
@@ -176,7 +173,6 @@ li {
   display: block;
   top: 5px;
 }
-
 #nextTrip {
   font-size: 20px;
 }

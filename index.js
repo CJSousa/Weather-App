@@ -59,7 +59,6 @@ function updateTime(date) {
 }
 
 let today = new Date();
-console.log(today);
 //Update Date
 let h2 = document.querySelector("h2");
 h2.innerHTML = updateDate(today);
