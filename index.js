@@ -106,7 +106,7 @@ let tempValues = {}; //Assigns ids to the temperatures they should be showing
 function renderTemperatures() {
   for (let [id, currentDegreesTemp] of Object.entries(tempValues)) {
     document.querySelector(id).innerHTML = `${Math.round(
-      tmp
+      currentDegreesTemp
     )}°${modeTempDegrees}`;
   }
 }
@@ -173,12 +173,15 @@ function nightMode(response) {
   let currentSunset = convertTime(differenceSunset);
 
   if (hours > currentSunset) {
-    mode.classList.add("darkMode").remove("lightMode");
+    mode.classList.add("darkMode");
+    mode.classList.remove("lightMode");
   }
   if (hours < currentSunrise) {
-    mode.classList.add("darkMode").remove("lightMode");
+    mode.classList.add("darkMode");
+    mode.classList.remove("lightMode");
   } else {
-    mode.classList.remove("darkMode").add("lightMode");
+    mode.classList.remove("darkMode");
+    mode.classList.add("lightMode");
   }
 }
 
