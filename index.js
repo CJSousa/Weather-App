@@ -208,15 +208,12 @@ function clickForCurrentData() {
 
     let temperature = response.data.main.temp;
     tempValues["#tempNow"] = temperature;
-    renderTemperatures();
 
-    let maxTempToday = Math.round(response.data.main.temp_max);
-    let currentTempMaxToday = document.querySelector("#maxTempNow");
-    currentTempMaxToday.innerHTML = `${maxTempToday}°C`;
+    let maxTempToday = response.data.main.temp_max;
+    tempValues["#maxTempNow"] = maxTempToday;
 
-    let minTempToday = Math.round(response.data.main.temp_min);
-    let currentTempMinToday = document.querySelector("#minTempNow");
-    currentTempMinToday.innerHTML = `${minTempToday}°C`;
+    let minTempToday = response.data.main.temp_min;
+    tempValues["#minTempNow"] = minTempToday;
 
     let humidityToday = response.data.main.humidity;
     let currentHumidityToday = document.querySelector("#humidityToday");
@@ -225,6 +222,8 @@ function clickForCurrentData() {
     let windSpeedToday = response.data.wind.speed;
     let currentWindSpeed = document.querySelector("#windToday");
     currentWindSpeed.innerHTML = `Wind speed: ${windSpeedToday}km/h`;
+
+    renderTemperatures();
   }
 
   function showPosition(position) {
@@ -269,17 +268,16 @@ function showWeatherDetailsNextTrip(response) {
     `http://openweathermap.org/img/w/${response.data.weather[0].icon}.png`
   );
 
-  let temperature = document.querySelector("#tempNextTrip");
-  let tNext = Math.round(response.data.main.temp);
-  temperature.innerHTML = `${tNext}°C`;
+  let tNext = response.data.main.temp;
+  tempValues["#tempNextTrip"] = tNext;
 
-  let maxTemp = document.querySelector("#maxTempNextTrip");
-  let maxT = Math.round(response.data.main.temp_max);
-  maxTemp.innerHTML = `${maxT}°C`;
+  let maxT = response.data.main.temp_max;
+  tempValues["#maxTempNextTrip"] = maxT;
 
-  let minTemp = document.querySelector("#minTempNextTrip");
-  let minT = Math.round(response.data.main.temp_min);
-  minTemp.innerText = `${minT}°C`;
+  let minT = response.data.main.temp_min;
+  tempValues["#minTempNextTrip"] = minT;
+
+  renderTemperatures();
 
   let humidity = document.querySelector("#humidityNextTrip");
   let humNext = response.data.main.humidity;
@@ -320,15 +318,14 @@ function showWeatherDetailsForecast(response) {
       response.data.list[7].weather[0].icon
     }.png`
   );
-  let maxDay1Temp0 = Math.round(response.data.list[0].main.temp_max);
-  let maxDay1Temp1 = Math.round(response.data.list[1].main.temp_max);
-  let maxDay1Temp2 = Math.round(response.data.list[2].main.temp_max);
-  let maxDay1Temp3 = Math.round(response.data.list[3].main.temp_max);
-  let maxDay1Temp4 = Math.round(response.data.list[4].main.temp_max);
-  let maxDay1Temp5 = Math.round(response.data.list[5].main.temp_max);
-  let maxDay1Temp6 = Math.round(response.data.list[6].main.temp_max);
-  let maxDay1Temp7 = Math.round(response.data.list[7].main.temp_max);
-  let maxTemp1 = document.querySelector("#maxTemp1");
+  let maxDay1Temp0 = response.data.list[0].main.temp_max;
+  let maxDay1Temp1 = response.data.list[1].main.temp_max;
+  let maxDay1Temp2 = response.data.list[2].main.temp_max;
+  let maxDay1Temp3 = response.data.list[3].main.temp_max;
+  let maxDay1Temp4 = response.data.list[4].main.temp_max;
+  let maxDay1Temp5 = response.data.list[5].main.temp_max;
+  let maxDay1Temp6 = response.data.list[6].main.temp_max;
+  let maxDay1Temp7 = response.data.list[7].main.temp_max;
   let maxT1 = Math.max(
     maxDay1Temp0,
     maxDay1Temp1,
@@ -339,16 +336,16 @@ function showWeatherDetailsForecast(response) {
     maxDay1Temp6,
     maxDay1Temp7
   );
-  maxTemp1.innerHTML = `${maxT1}°C`;
-  let minDay1Temp0 = Math.round(response.data.list[0].main.temp_max);
-  let minDay1Temp1 = Math.round(response.data.list[1].main.temp_max);
-  let minDay1Temp2 = Math.round(response.data.list[2].main.temp_max);
-  let minDay1Temp3 = Math.round(response.data.list[3].main.temp_max);
-  let minDay1Temp4 = Math.round(response.data.list[4].main.temp_max);
-  let minDay1Temp5 = Math.round(response.data.list[5].main.temp_max);
-  let minDay1Temp6 = Math.round(response.data.list[6].main.temp_max);
-  let minDay1Temp7 = Math.round(response.data.list[7].main.temp_max);
-  let minTemp1 = document.querySelector("#minTemp1");
+  tempValues["#maxTemp1"] = maxT1;
+
+  let minDay1Temp0 = response.data.list[0].main.temp_max;
+  let minDay1Temp1 = response.data.list[1].main.temp_max;
+  let minDay1Temp2 = response.data.list[2].main.temp_max;
+  let minDay1Temp3 = response.data.list[3].main.temp_max;
+  let minDay1Temp4 = response.data.list[4].main.temp_max;
+  let minDay1Temp5 = response.data.list[5].main.temp_max;
+  let minDay1Temp6 = response.data.list[6].main.temp_max;
+  let minDay1Temp7 = response.data.list[7].main.temp_max;
   let minT1 = Math.min(
     minDay1Temp0,
     minDay1Temp1,
@@ -359,7 +356,8 @@ function showWeatherDetailsForecast(response) {
     minDay1Temp6,
     minDay1Temp7
   );
-  minTemp1.innerText = `${minT1}°C`;
+  tempValues["#minTemp1"] = minT1;
+
   let humidity1 = document.querySelector("#humidity1");
   let hum1 = response.data.list[7].main.humidity;
   humidity1.innerText = `Hum: ${hum1}%`;
@@ -381,15 +379,14 @@ function showWeatherDetailsForecast(response) {
       response.data.list[15].weather[0].icon
     }.png`
   );
-  let maxDay2Temp8 = Math.round(response.data.list[8].main.temp_max);
-  let maxDay2Temp9 = Math.round(response.data.list[9].main.temp_max);
-  let maxDay2Temp10 = Math.round(response.data.list[10].main.temp_max);
-  let maxDay2Temp11 = Math.round(response.data.list[11].main.temp_max);
-  let maxDay2Temp12 = Math.round(response.data.list[12].main.temp_max);
-  let maxDay2Temp13 = Math.round(response.data.list[13].main.temp_max);
-  let maxDay2Temp14 = Math.round(response.data.list[14].main.temp_max);
-  let maxDay2Temp15 = Math.round(response.data.list[15].main.temp_max);
-  let maxTemp2 = document.querySelector("#maxTemp2");
+  let maxDay2Temp8 = response.data.list[8].main.temp_max;
+  let maxDay2Temp9 = response.data.list[9].main.temp_max;
+  let maxDay2Temp10 = response.data.list[10].main.temp_max;
+  let maxDay2Temp11 = response.data.list[11].main.temp_max;
+  let maxDay2Temp12 = response.data.list[12].main.temp_max;
+  let maxDay2Temp13 = response.data.list[13].main.temp_max;
+  let maxDay2Temp14 = response.data.list[14].main.temp_max;
+  let maxDay2Temp15 = response.data.list[15].main.temp_max;
   let maxT2 = Math.max(
     maxDay2Temp8,
     maxDay2Temp9,
@@ -400,16 +397,17 @@ function showWeatherDetailsForecast(response) {
     maxDay2Temp14,
     maxDay2Temp15
   );
-  maxTemp2.innerHTML = `${maxT2}°C`;
-  let minDay2Temp8 = Math.round(response.data.list[8].main.temp_max);
-  let minDay2Temp9 = Math.round(response.data.list[9].main.temp_max);
-  let minDay2Temp10 = Math.round(response.data.list[10].main.temp_max);
-  let minDay2Temp11 = Math.round(response.data.list[11].main.temp_max);
-  let minDay2Temp12 = Math.round(response.data.list[12].main.temp_max);
-  let minDay2Temp13 = Math.round(response.data.list[13].main.temp_max);
-  let minDay2Temp14 = Math.round(response.data.list[14].main.temp_max);
-  let minDay2Temp15 = Math.round(response.data.list[15].main.temp_max);
-  let minTemp2 = document.querySelector("#minTemp2");
+
+  tempValues["#maxTemp2"] = maxT2;
+
+  let minDay2Temp8 = response.data.list[8].main.temp_max;
+  let minDay2Temp9 = response.data.list[9].main.temp_max;
+  let minDay2Temp10 = response.data.list[10].main.temp_max;
+  let minDay2Temp11 = response.data.list[11].main.temp_max;
+  let minDay2Temp12 = response.data.list[12].main.temp_max;
+  let minDay2Temp13 = response.data.list[13].main.temp_max;
+  let minDay2Temp14 = response.data.list[14].main.temp_max;
+  let minDay2Temp15 = response.data.list[15].main.temp_max;
   let minT2 = Math.min(
     minDay2Temp8,
     minDay2Temp9,
@@ -420,7 +418,8 @@ function showWeatherDetailsForecast(response) {
     minDay2Temp14,
     minDay2Temp15
   );
-  minTemp2.innerText = `${minT2}°C`;
+  tempValues["#minTemp2"] = minT2;
+
   let humidity2 = document.querySelector("#humidity2");
   let hum2 = response.data.list[15].main.humidity;
   humidity2.innerText = `Hum: ${hum2}%`;
@@ -442,15 +441,14 @@ function showWeatherDetailsForecast(response) {
       response.data.list[23].weather[0].icon
     }.png`
   );
-  let maxDay3Temp16 = Math.round(response.data.list[16].main.temp_max);
-  let maxDay3Temp17 = Math.round(response.data.list[17].main.temp_max);
-  let maxDay3Temp18 = Math.round(response.data.list[18].main.temp_max);
-  let maxDay3Temp19 = Math.round(response.data.list[19].main.temp_max);
-  let maxDay3Temp20 = Math.round(response.data.list[20].main.temp_max);
-  let maxDay3Temp21 = Math.round(response.data.list[21].main.temp_max);
-  let maxDay3Temp22 = Math.round(response.data.list[22].main.temp_max);
-  let maxDay3Temp23 = Math.round(response.data.list[23].main.temp_max);
-  let maxTemp3 = document.querySelector("#maxTemp3");
+  let maxDay3Temp16 = response.data.list[16].main.temp_max;
+  let maxDay3Temp17 = response.data.list[17].main.temp_max;
+  let maxDay3Temp18 = response.data.list[18].main.temp_max;
+  let maxDay3Temp19 = response.data.list[19].main.temp_max;
+  let maxDay3Temp20 = response.data.list[20].main.temp_max;
+  let maxDay3Temp21 = response.data.list[21].main.temp_max;
+  let maxDay3Temp22 = response.data.list[22].main.temp_max;
+  let maxDay3Temp23 = response.data.list[23].main.temp_max;
   let maxT3 = Math.max(
     maxDay3Temp16,
     maxDay3Temp17,
@@ -461,16 +459,16 @@ function showWeatherDetailsForecast(response) {
     maxDay3Temp22,
     maxDay3Temp23
   );
-  maxTemp3.innerHTML = `${maxT3}°C`;
-  let minDay3Temp16 = Math.round(response.data.list[16].main.temp_max);
-  let minDay3Temp17 = Math.round(response.data.list[17].main.temp_max);
-  let minDay3Temp18 = Math.round(response.data.list[18].main.temp_max);
-  let minDay3Temp19 = Math.round(response.data.list[19].main.temp_max);
-  let minDay3Temp20 = Math.round(response.data.list[20].main.temp_max);
-  let minDay3Temp21 = Math.round(response.data.list[21].main.temp_max);
-  let minDay3Temp22 = Math.round(response.data.list[22].main.temp_max);
-  let minDay3Temp23 = Math.round(response.data.list[23].main.temp_max);
-  let minTemp3 = document.querySelector("#minTemp3");
+  tempValues["#maxTemp3"] = maxT3;
+
+  let minDay3Temp16 = response.data.list[16].main.temp_max;
+  let minDay3Temp17 = response.data.list[17].main.temp_max;
+  let minDay3Temp18 = response.data.list[18].main.temp_max;
+  let minDay3Temp19 = response.data.list[19].main.temp_max;
+  let minDay3Temp20 = response.data.list[20].main.temp_max;
+  let minDay3Temp21 = response.data.list[21].main.temp_max;
+  let minDay3Temp22 = response.data.list[22].main.temp_max;
+  let minDay3Temp23 = response.data.list[23].main.temp_max;
   let minT3 = Math.min(
     minDay3Temp16,
     minDay3Temp17,
@@ -481,7 +479,8 @@ function showWeatherDetailsForecast(response) {
     minDay3Temp22,
     minDay3Temp23
   );
-  minTemp3.innerText = `${minT3}°C`;
+  tempValues["#minTemp3"] = minT3;
+
   let humidity3 = document.querySelector("#humidity3");
   let hum3 = response.data.list[17].main.humidity;
   humidity3.innerText = `Hum: ${hum3}%`;
@@ -503,20 +502,46 @@ function showWeatherDetailsForecast(response) {
       response.data.list[31].weather[0].icon
     }.png`
   );
-  let maxDay4Temp31 = Math.round(response.data.list[31].main.temp_max);
-  let maxDay4Temp32 = Math.round(response.data.list[32].main.temp_max);
-  let maxDay4Temp33 = Math.round(response.data.list[33].main.temp_max);
-  let maxDay4Temp34 = Math.round(response.data.list[34].main.temp_max);
-  let maxDay4Temp35 = Math.round(response.data.list[35].main.temp_max);
-  let maxDay4Temp36 = Math.round(response.data.list[36].main.temp_max);
-  let maxDay4Temp37 = Math.round(response.data.list[37].main.temp_max);
-  let maxDay4Temp38 = Math.round(response.data.list[38].main.temp_max);
-  let maxTemp4 = document.querySelector("#maxTemp4");
-  let maxT4 = Math.round(response.data.list[25].main.temp_max);
-  maxTemp4.innerHTML = `${maxT4}°C`;
-  let minTemp4 = document.querySelector("#minTemp4");
-  let minT4 = Math.round(response.data.list[25].main.temp_min);
-  minTemp4.innerText = `${minT4}°C`;
+  let maxDay4Temp24 = response.data.list[24].main.temp_max;
+  let maxDay4Temp25 = response.data.list[25].main.temp_max;
+  let maxDay4Temp26 = response.data.list[26].main.temp_max;
+  let maxDay4Temp27 = response.data.list[27].main.temp_max;
+  let maxDay4Temp28 = response.data.list[28].main.temp_max;
+  let maxDay4Temp29 = response.data.list[29].main.temp_max;
+  let maxDay4Temp30 = response.data.list[30].main.temp_max;
+  let maxDay4Temp31 = response.data.list[31].main.temp_max;
+  let maxT4 = Math.max(
+    maxDay4Temp24,
+    maxDay4Temp25,
+    maxDay4Temp26,
+    maxDay4Temp27,
+    maxDay4Temp28,
+    maxDay4Temp29,
+    maxDay4Temp30,
+    maxDay4Temp31
+  );
+  tempValues["#maxTemp4"] = maxT4;
+
+  let minDay4Temp24 = response.data.list[24].main.temp_min;
+  let minDay4Temp25 = response.data.list[25].main.temp_min;
+  let minDay4Temp26 = response.data.list[26].main.temp_min;
+  let minDay4Temp27 = response.data.list[27].main.temp_min;
+  let minDay4Temp28 = response.data.list[28].main.temp_min;
+  let minDay4Temp29 = response.data.list[29].main.temp_min;
+  let minDay4Temp30 = response.data.list[30].main.temp_min;
+  let minDay4Temp31 = response.data.list[31].main.temp_min;
+  let minT4 = Math.min(
+    minDay4Temp24,
+    minDay4Temp25,
+    minDay4Temp26,
+    minDay4Temp27,
+    minDay4Temp28,
+    minDay4Temp29,
+    minDay4Temp30,
+    minDay4Temp31
+  );
+  tempValues["#minTemp4"] = minT4;
+
   let humidity4 = document.querySelector("#humidity4");
   let hum4 = response.data.list[25].main.humidity;
   humidity4.innerText = `Hum: ${hum4}%`;
@@ -526,7 +551,6 @@ function showWeatherDetailsForecast(response) {
 
   let date5 = document.querySelector("#day5");
   day5Forecast = response.data.list[39].dt;
-  console.log(day5Forecast);
   day5Forecast = convertDate(day5Forecast);
   date5.innerHTML = day5Forecast;
 
@@ -539,12 +563,48 @@ function showWeatherDetailsForecast(response) {
       response.data.list[33].weather[0].icon
     }.png`
   );
-  let maxTemp5 = document.querySelector("#maxTemp5");
-  let maxT5 = Math.round(response.data.list[33].main.temp_max);
-  maxTemp5.innerHTML = `${maxT5}°C`;
-  let minTemp5 = document.querySelector("#minTemp5");
-  let minT5 = Math.round(response.data.list[33].main.temp_min);
-  minTemp5.innerText = `${minT5}°C`;
+
+  let maxDay5Temp32 = response.data.list[32].main.temp_max;
+  let maxDay5Temp33 = response.data.list[33].main.temp_max;
+  let maxDay5Temp34 = response.data.list[34].main.temp_max;
+  let maxDay5Temp35 = response.data.list[35].main.temp_max;
+  let maxDay5Temp36 = response.data.list[36].main.temp_max;
+  let maxDay5Temp37 = response.data.list[37].main.temp_max;
+  let maxDay5Temp38 = response.data.list[38].main.temp_max;
+  let maxDay5Temp39 = response.data.list[39].main.temp_max;
+  let maxT5 = Math.max(
+    maxDay5Temp32,
+    maxDay5Temp33,
+    maxDay5Temp34,
+    maxDay5Temp35,
+    maxDay5Temp36,
+    maxDay5Temp37,
+    maxDay5Temp38,
+    maxDay5Temp39
+  );
+  tempValues["#maxTemp5"] = maxT4;
+
+  let minDay5Temp24 = response.data.list[32].main.temp_min;
+  let minDay5Temp25 = response.data.list[33].main.temp_min;
+  let minDay5Temp26 = response.data.list[34].main.temp_min;
+  let minDay5Temp27 = response.data.list[35].main.temp_min;
+  let minDay5Temp28 = response.data.list[36].main.temp_min;
+  let minDay5Temp29 = response.data.list[37].main.temp_min;
+  let minDay5Temp30 = response.data.list[38].main.temp_min;
+  let minDay5Temp31 = response.data.list[39].main.temp_min;
+  let minT5 = Math.min(
+    minDay5Temp24,
+    minDay5Temp25,
+    minDay5Temp26,
+    minDay5Temp27,
+    minDay5Temp28,
+    minDay5Temp29,
+    minDay5Temp30,
+    minDay5Temp31
+  );
+  tempValues["#minTemp5"] = minT5;
+  renderTemperatures();
+
   let humidity5 = document.querySelector("#humidity5");
   let hum5 = response.data.list[33].main.humidity;
   humidity5.innerText = `Hum: ${hum5}%`;
