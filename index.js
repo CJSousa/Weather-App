@@ -104,38 +104,26 @@ let tempValues = {}; //Assigns ids to the temperatures they should be showing
 
 function renderTemperatures() {
   for (let [id, currentDegreesTemp] of Object.entries(tempValues)) {
-    document.querySelector(id).innerHTML = `${Math.round(
-      currentDegreesTemp
-    )}°${modeTempDegrees}`;
+    if (modeTempDegrees === "C") {
+      document.querySelector(id).innerHTML = `${Math.round(
+        currentDegreesTemp
+      )}°${modeTempDegrees}`;
+    } else {
+      document.querySelector(id).innerHTML = `${Math.round(
+        currentDegreesTemp * (9 / 5) + 32
+      )}°${modeTempDegrees}`;
+    }
   }
 }
 
 function changeDegreesToC() {
-  if (modeTempDegrees === "C") {
-    return;
-  } else {
-    for (let id in tempValues) {
-      tempValues[id] = (tempValues[id] - 32) * (5 / 9);
-    }
-    modeTempDegrees = "C";
-    renderTemperatures();
-  }
+  modeTempDegrees = "C";
+  renderTemperatures();
 }
 
 function changeDegreesToF() {
-  if (modeTempDegrees === "F") return;
-  else {
-    for (let id in tempValues) {
-      tempValues[id] = tempValues[id] * (9 / 5) + 32;
-    }
-    modeTempDegrees = "F";
-    renderTemperatures();
-  }
-}
-
-function convertTemperatures(currentDegreesTemp) {
-  if (modeTempDegrees === "C") return currentDegreesTemp;
-  else return currentDegreesTemp * (9 / 5) + 32;
+  modeTempDegrees = "F";
+  renderTemperatures();
 }
 
 let buttonToGetCelsius = document.querySelector("#celsius");
@@ -174,8 +162,7 @@ function nightMode(response) {
   if (hours > currentSunset) {
     mode.classList.add("darkMode");
     mode.classList.remove("lightMode");
-  }
-  if (hours < currentSunrise) {
+  } else if (hours < currentSunrise) {
     mode.classList.add("darkMode");
     mode.classList.remove("lightMode");
   } else {
