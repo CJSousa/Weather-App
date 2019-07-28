@@ -311,12 +311,12 @@ function showWeatherDetailsForecast(response) {
 
     let maxTemp = response.data.list
       .slice(base + 0, base + 8)
-      .map(a => a.main.temp_max)
-      .reduce((a, b) => Math.max(a, b));
+      .map(temp => temp.main.temp_max)
+      .reduce((temp, lastTemp) => Math.max(temp, lastTemp));
     let minTemp = response.data.list
       .slice(base + 0, base + 8)
-      .map(a => a.main.temp_min)
-      .reduce((a, b) => Math.min(a, b));
+      .map(temp => temp.main.temp_min)
+      .reduce((temp, lastTemp) => Math.min(temp, lastTemp));
     tempValues["#maxTemp" + i] = maxTemp;
     tempValues["#minTemp" + i] = minTemp;
 
