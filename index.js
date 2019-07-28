@@ -311,12 +311,12 @@ function showWeatherDetailsForecast(response) {
 
     let maxTemp = response.data.list
       .slice(base + 0, base + 8)
-      .map(temp => temp.main.temp_max)
-      .reduce((temp, lastTemp) => Math.max(temp, lastTemp));
+      .map(a => a.main.temp_max)
+      .reduce((a, b) => Math.max(a, b));
     let minTemp = response.data.list
       .slice(base + 0, base + 8)
-      .map(temp => temp.main.temp_min)
-      .reduce((temp, lastTemp) => Math.min(temp, lastTemp));
+      .map(a => a.main.temp_min)
+      .reduce((a, b) => Math.min(a, b));
     tempValues["#maxTemp" + i] = maxTemp;
     tempValues["#minTemp" + i] = minTemp;
 
@@ -324,9 +324,11 @@ function showWeatherDetailsForecast(response) {
     let hum = response.data.list[base + 7].main.humidity;
     humidity.innerText = `Hum: ${hum}%`;
 
-    let wind1 = document.querySelector("#wind1");
-    let windNext1 = Math.round(response.data.list[7].wind.speed);
-    wind1.innerText = `Wind: ${windNext1}km/h`;
+    let wind = document.querySelector("#wind" + i);
+    let windNext = Math.round(response.data.list[base + 7].wind.speed);
+    wind.innerText = `Wind: ${windNext}km/h`;
+
+    renderTemperatures();
   }
 }
 
