@@ -149,7 +149,7 @@ function nightMode(response) {
   let sunset = response.data.sys.sunset;
   let timezone = response.data.timezone;
   let mode = document.getElementById("body");
-  let today = new Date();
+  let today = new Date().getHours() * 3600;
   let difference = today + timezone - 3600;
   let differenceSunrise = sunrise + timezone - 3600;
   let differenceSunset = sunset + timezone - 3600;
