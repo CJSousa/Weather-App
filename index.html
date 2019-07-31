@@ -83,24 +83,12 @@
                 <br />
                 <br />
                 <p>Trip to Faro: 10th August 2019</p>
-                <div class="col-md-12">
-                  <ul>
-                    <li>
-                      <span>35°C</span>
-                      <i class="fas fa-thermometer-full tempMax"></i>
-                      <span>25°C</span>
-                      <i class="fas fa-thermometer-quarter tempMin"></i>
-                    </li>
-                    <li>Wind speed: 2.0 km/h</li>
-                    <li>Humidity: 26%</li>
-                  </ul>
-                </div>
                 <br />
                 <p>
                   <i class="fas fa-umbrella-beach umbrellaBeachIcon"></i>
                   <small
                     >Enjoy the sandy beaches of the Mediterranean Sea and share
-                    the best mojitos with all your friends</small
+                    the best sangria with all your friends!</small
                   >
                 </p>
                 <div
@@ -138,27 +126,17 @@
                 </header>
                 <br />
                 <h2></h2>
-                <div class="row">
-                  <div class="col-md-2"></div>
-                  <div class="col-md-8">
-                    <div class="row">
-                      <div class="col-md-2">
-                        <button
-                          type="button"
-                          class="btn btn-outline-info"
-                          id="location"
-                        >
-                          <i class="fas fa-map-marker-alt locationIcon"></i>
-                        </button>
-                      </div>
-                      <div class="col-md-10">
-                        <span>How's the sun shining here?</span>
-                      </div>
-                    </div>
-                    <span id="currentLocation"></span>
-                  </div>
-                  <div class="col-md-2"></div>
+                <div class="clearfix">
+                  <button
+                    type="button"
+                    class="btn btn-outline-info"
+                    id="location"
+                  >
+                    <i class="fas fa-map-marker-alt locationIcon"></i>
+                  </button>
+                  <span id="sunshining">How's the sun shining here?</span>
                 </div>
+                <span id="currentLocation"></span>
                 <br />
                 <div class="row">
                   <div class="col-md-2"></div>
@@ -182,39 +160,21 @@
                   <div class="col-md-2"></div>
                 </div>
                 <br />
+                <ul>
+                  <li>
+                    <span class="temperature" id="maxTempNow"></span>
+                    <i
+                      class="fas fa-thermometer-full tempMax tempCurrentLocation"
+                    ></i>
+                    <span class="temperature" id="minTempNow"></span>
+                    <i
+                      class="fas fa-thermometer-quarter tempMin tempCurrentLocation"
+                    ></i>
+                  </li>
+                  <li id="windToday"></li>
+                  <li id="humidityToday"></li>
+                </ul>
                 <br />
-                <div class="col-md-12">
-                  <ul>
-                    <li>
-                      <span class="temperature" id="maxTempNow"></span>
-                      <i
-                        class="fas fa-thermometer-full tempMax tempCurrentLocation"
-                      ></i>
-                      <span class="temperature" id="minTempNow"></span>
-                      <i
-                        class="fas fa-thermometer-quarter tempMin tempCurrentLocation"
-                      ></i>
-                    </li>
-                    <li id="windToday"></li>
-                    <li id="humidityToday"></li>
-                  </ul>
-                </div>
-                <br />
-                <div
-                  class="btn-group mr-2 socialButtons"
-                  role="group"
-                  aria-label="Second group"
-                >
-                  <button type="button" class="btn btn-outline-light">
-                    <i class="fab fa-instagram instaIcon"></i>
-                  </button>
-                  <button type="button" class="btn btn-outline-light">
-                    <i class="fab fa-twitter twitterIcon"></i>
-                  </button>
-                  <button type="button" class="btn btn-outline-light">
-                    <i class="fab fa-snapchat-ghost snapchatIcon"></i>
-                  </button>
-                </div>
               </div>
               <div class="col-md-2"></div>
             </div>
@@ -262,8 +222,8 @@
                     <span class="temperature" id="minTempNextTrip"></span>
                     <i class="fas fa-thermometer-quarter tempMin"></i>
                   </li>
-                  <li id="humidityNextTrip"></li>
                   <li id="windNextTrip"></li>
+                  <li id="humidityNextTrip"></li>
                 </ul>
               </div>
             </div>
@@ -283,6 +243,7 @@
               <img id="icon1" />
               <span id="descripWeather1"></span>
             </div>
+            <br />
             <ul>
               <li>
                 <span class="temperature" id="maxTemp1"></span>
@@ -300,6 +261,7 @@
               <img id="icon2" />
               <span id="descripWeather2"></span>
             </div>
+            <br />
             <ul>
               <li>
                 <span class="temperature" id="maxTemp2"></span>
@@ -317,6 +279,7 @@
               <img id="icon3" />
               <span id="descripWeather3"></span>
             </div>
+            <br />
             <ul>
               <li>
                 <span class="temperature" id="maxTemp3"></span>
@@ -334,6 +297,7 @@
               <img id="icon4" />
               <span id="descripWeather4"></span>
             </div>
+            <br />
             <ul>
               <li>
                 <span class="temperature" id="maxTemp4"></span>
@@ -351,6 +315,7 @@
               <img id="icon5" />
               <span id="descripWeather5"></span>
             </div>
+            <br />
             <ul>
               <li>
                 <span class="temperature" id="maxTemp5"></span>

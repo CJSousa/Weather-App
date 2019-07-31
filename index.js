@@ -263,18 +263,17 @@ function showWeatherDetailsNextTrip(response) {
   let minT = response.data.main.temp_min;
   tempValues["#minTempNextTrip"] = minT;
 
-  renderTemperatures();
-
   let humidity = document.querySelector("#humidityNextTrip");
   let humNext = response.data.main.humidity;
   humidity.innerText = `Humidity: ${humNext}%`;
 
   let wind = document.querySelector("#windNextTrip");
   let windNext = Math.round(response.data.wind.speed);
-  wind.innerText = `Wind speed: ${windNext} km\h`;
+  wind.innerText = `Wind speed: ${windNext} km/h`;
+
+  renderTemperatures();
 }
 
-//Form Forecats Details
 function searchForecast(city) {
   let apiKey = "8a8a393e03ebb3959d1f1fd908ba1628";
   let apiEndPoint = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
