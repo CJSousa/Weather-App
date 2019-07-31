@@ -59,10 +59,8 @@ function updateTime(date) {
 }
 
 let today = new Date();
-//Update Date
 let h2 = document.querySelector("h2");
 h2.innerHTML = updateDate(today);
-//Update Time
 let h3 = document.querySelector("h3"); //How do we make it update in real time?
 h3.innerHTML = updateTime(today);
 //setTimeout("renderTime()", 1000);
